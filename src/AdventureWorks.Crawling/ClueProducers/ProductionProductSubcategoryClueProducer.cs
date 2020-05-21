@@ -38,7 +38,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.ProductCategoryID != null && !string.IsNullOrEmpty(input.ProductCategoryID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/ProductionProductCategory", EntityEdgeType.AttachedTo, input.ProductCategoryID, input.ProductCategoryID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/ProductionProductCategory", EntityEdgeType.PartOf, input.ProductCategoryID, input.ProductCategoryID.ToString());
             }
 
             if (!data.OutgoingEdges.Any())

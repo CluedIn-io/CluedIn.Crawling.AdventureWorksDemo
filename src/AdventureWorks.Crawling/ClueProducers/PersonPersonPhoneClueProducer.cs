@@ -42,7 +42,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
             }
             if (input.PhoneNumberTypeID != null && !string.IsNullOrEmpty(input.PhoneNumberTypeID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/PersonPhoneNumberType", EntityEdgeType.AttachedTo, input.PhoneNumberTypeID, input.PhoneNumberTypeID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/PersonPhoneNumberType", EntityEdgeType.IsType, input.PhoneNumberTypeID, input.PhoneNumberTypeID.ToString());
             }
 
             if (!data.OutgoingEdges.Any())

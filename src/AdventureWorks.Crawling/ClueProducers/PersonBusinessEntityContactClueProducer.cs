@@ -46,7 +46,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
             }
             if (input.ContactTypeID != null && !string.IsNullOrEmpty(input.ContactTypeID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/PersonContactType", EntityEdgeType.AttachedTo, input.ContactTypeID, input.ContactTypeID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/PersonContactType", EntityEdgeType.IsType, input.ContactTypeID, input.ContactTypeID.ToString());
             }
 
             if (!data.OutgoingEdges.Any())

@@ -36,15 +36,15 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.BusinessEntityID != null && !string.IsNullOrEmpty(input.BusinessEntityID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/PersonBusinessEntity", EntityEdgeType.AttachedTo, input.BusinessEntityID, input.BusinessEntityID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/PersonBusinessEntity", EntityEdgeType.For, input.BusinessEntityID, input.BusinessEntityID.ToString());
             }
             if (input.AddressID != null && !string.IsNullOrEmpty(input.AddressID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/PersonAddress", EntityEdgeType.AttachedTo, input.AddressID, input.AddressID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/PersonAddress", "Is", input.AddressID, input.AddressID.ToString());
             }
             if (input.AddressTypeID != null && !string.IsNullOrEmpty(input.AddressTypeID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/PersonAddressType", EntityEdgeType.AttachedTo, input.AddressTypeID, input.AddressTypeID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/PersonAddressType", EntityEdgeType.IsType, input.AddressTypeID, input.AddressTypeID.ToString());
             }
 
             if (!data.OutgoingEdges.Any())

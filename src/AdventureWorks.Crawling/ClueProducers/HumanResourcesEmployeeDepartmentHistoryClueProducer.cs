@@ -45,7 +45,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
             }
             if (input.ShiftID != null && !string.IsNullOrEmpty(input.ShiftID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/HumanResourcesShift", EntityEdgeType.For, input.ShiftID, input.ShiftID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/HumanResourcesShift", "During", input.ShiftID, input.ShiftID.ToString());
             }
 
             if (!data.OutgoingEdges.Any())

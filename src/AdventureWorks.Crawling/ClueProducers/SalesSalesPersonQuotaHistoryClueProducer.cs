@@ -38,7 +38,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.BusinessEntityID != null && !string.IsNullOrEmpty(input.BusinessEntityID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/SalesSalesPerson", EntityEdgeType.AttachedTo, input.BusinessEntityID, input.BusinessEntityID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/SalesSalesPerson", EntityEdgeType.For, input.BusinessEntityID, input.BusinessEntityID.ToString());
             }
 
             if (!data.OutgoingEdges.Any())

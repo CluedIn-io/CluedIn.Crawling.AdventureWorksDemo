@@ -38,15 +38,15 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.EmployeeID != null && !string.IsNullOrEmpty(input.EmployeeID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, EntityType.Person, EntityEdgeType.AttachedTo, input.EmployeeID, input.EmployeeID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Person, EntityEdgeType.Author, input.EmployeeID, input.EmployeeID.ToString());
             }
             if (input.VendorID != null && !string.IsNullOrEmpty(input.VendorID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, EntityType.Organization, EntityEdgeType.AttachedTo, input.VendorID, input.VendorID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Organization, "From", input.VendorID, input.VendorID.ToString());
             }
             if (input.ShipMethodID != null && !string.IsNullOrEmpty(input.ShipMethodID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/PurchasingShipMethod", EntityEdgeType.AttachedTo, input.ShipMethodID, input.ShipMethodID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/PurchasingShipMethod", "With", input.ShipMethodID, input.ShipMethodID.ToString());
             }
 
             if (!data.OutgoingEdges.Any())

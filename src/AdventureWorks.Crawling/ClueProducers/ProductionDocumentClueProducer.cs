@@ -36,7 +36,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.Owner != null && !string.IsNullOrEmpty(input.Owner.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, EntityType.Person, EntityEdgeType.AttachedTo, input.Owner, input.Owner.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Person, EntityEdgeType.OwnedBy, input.Owner, input.Owner.ToString());
             }
 
             if (!data.OutgoingEdges.Any())

@@ -38,15 +38,15 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.ProductModelID != null && !string.IsNullOrEmpty(input.ProductModelID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/ProductionProductModel", EntityEdgeType.AttachedTo, input.ProductModelID, input.ProductModelID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/ProductionProductModel", EntityEdgeType.For, input.ProductModelID, input.ProductModelID.ToString());
             }
             if (input.ProductDescriptionID != null && !string.IsNullOrEmpty(input.ProductDescriptionID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/ProductionProductDescription", EntityEdgeType.AttachedTo, input.ProductDescriptionID, input.ProductDescriptionID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/ProductionProductDescription", EntityEdgeType.For, input.ProductDescriptionID, input.ProductDescriptionID.ToString());
             }
             if (input.CultureID != null && !string.IsNullOrEmpty(input.CultureID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/ProductionCulture", EntityEdgeType.AttachedTo, input.CultureID, input.CultureID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/ProductionCulture", EntityEdgeType.IsType, input.CultureID, input.CultureID.ToString());
             }
 
             if (!data.OutgoingEdges.Any())

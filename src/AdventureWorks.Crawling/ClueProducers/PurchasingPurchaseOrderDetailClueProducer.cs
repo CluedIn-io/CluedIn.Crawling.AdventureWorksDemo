@@ -37,11 +37,11 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.PurchaseOrderID != null && !string.IsNullOrEmpty(input.PurchaseOrderID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, EntityType.Sales.Order, EntityEdgeType.AttachedTo, input.PurchaseOrderID, input.PurchaseOrderID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Sales.Order, EntityEdgeType.PartOf, input.PurchaseOrderID, input.PurchaseOrderID.ToString());
             }
             if (input.ProductID != null && !string.IsNullOrEmpty(input.ProductID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, EntityType.Product, EntityEdgeType.AttachedTo, input.ProductID, input.ProductID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Product, EntityEdgeType.Has, input.ProductID, input.ProductID.ToString());
             }
 
             if (!data.OutgoingEdges.Any())

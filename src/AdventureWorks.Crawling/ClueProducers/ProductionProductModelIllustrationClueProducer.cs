@@ -38,11 +38,11 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.ProductModelID != null && !string.IsNullOrEmpty(input.ProductModelID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/ProductionProductModel", EntityEdgeType.AttachedTo, input.ProductModelID, input.ProductModelID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/ProductionProductModel", EntityEdgeType.Has, input.ProductModelID, input.ProductModelID.ToString());
             }
             if (input.IllustrationID != null && !string.IsNullOrEmpty(input.IllustrationID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/ProductionIllustration", EntityEdgeType.AttachedTo, input.IllustrationID, input.IllustrationID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/ProductionIllustration", EntityEdgeType.Has, input.IllustrationID, input.IllustrationID.ToString());
             }
 
             if (!data.OutgoingEdges.Any())

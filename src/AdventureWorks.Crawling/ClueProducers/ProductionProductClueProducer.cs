@@ -38,19 +38,19 @@ data.Codes.Add(new EntityCode(EntityType.Product, AdventureWorksConstants.CodeOr
 
 if(input.SizeUnitMeasureCode != null && !string.IsNullOrEmpty(input.SizeUnitMeasureCode.ToString()))
 {
-_factory.CreateOutgoingEntityReference(clue, "/ProductionUnitMeasure", EntityEdgeType.AttachedTo, input.SizeUnitMeasureCode, input.SizeUnitMeasureCode.ToString());
+_factory.CreateOutgoingEntityReference(clue, "/ProductionUnitMeasure", EntityEdgeType.Has, input.SizeUnitMeasureCode, input.SizeUnitMeasureCode.ToString());
 }
 if(input.WeightUnitMeasureCode != null && !string.IsNullOrEmpty(input.WeightUnitMeasureCode.ToString()))
 {
-_factory.CreateOutgoingEntityReference(clue, "/ProductionUnitMeasure", EntityEdgeType.AttachedTo, input.WeightUnitMeasureCode, input.WeightUnitMeasureCode.ToString());
+_factory.CreateOutgoingEntityReference(clue, "/ProductionUnitMeasure", EntityEdgeType.Has, input.WeightUnitMeasureCode, input.WeightUnitMeasureCode.ToString());
 }
 if(input.ProductSubcategoryID != null && !string.IsNullOrEmpty(input.ProductSubcategoryID.ToString()))
 {
-_factory.CreateOutgoingEntityReference(clue, "/ProductionProductSubcategory", EntityEdgeType.AttachedTo, input.ProductSubcategoryID, input.ProductSubcategoryID.ToString());
+_factory.CreateOutgoingEntityReference(clue, "/ProductionProductSubcategory", EntityEdgeType.PartOf, input.ProductSubcategoryID, input.ProductSubcategoryID.ToString());
 }
 if(input.ProductModelID != null && !string.IsNullOrEmpty(input.ProductModelID.ToString()))
 {
-_factory.CreateOutgoingEntityReference(clue, "/ProductionProductModel", EntityEdgeType.AttachedTo, input.ProductModelID, input.ProductModelID.ToString());
+_factory.CreateOutgoingEntityReference(clue, "/ProductionProductModel", EntityEdgeType.IsType, input.ProductModelID, input.ProductModelID.ToString());
 }
 
 if (!data.OutgoingEdges.Any())

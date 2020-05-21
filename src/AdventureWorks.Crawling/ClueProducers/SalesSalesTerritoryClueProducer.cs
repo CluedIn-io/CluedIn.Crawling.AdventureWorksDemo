@@ -38,7 +38,7 @@ data.Codes.Add(new EntityCode("/SalesSalesTerritory", AdventureWorksConstants.Co
 
 if(input.CountryRegionCode != null && !string.IsNullOrEmpty(input.CountryRegionCode.ToString()))
 {
-_factory.CreateOutgoingEntityReference(clue, "/PersonCountryRegion", EntityEdgeType.AttachedTo, input.CountryRegionCode, input.CountryRegionCode.ToString());
+_factory.CreateOutgoingEntityReference(clue, "/PersonCountryRegion", EntityEdgeType.LocatedIn, input.CountryRegionCode, input.CountryRegionCode.ToString());
 }
 
 if (!data.OutgoingEdges.Any())

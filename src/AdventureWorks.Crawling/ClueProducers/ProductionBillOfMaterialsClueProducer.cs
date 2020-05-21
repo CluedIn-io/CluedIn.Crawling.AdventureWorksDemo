@@ -38,15 +38,15 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.ProductAssemblyID != null && !string.IsNullOrEmpty(input.ProductAssemblyID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, EntityType.Product, EntityEdgeType.AttachedTo, input.ProductAssemblyID, input.ProductAssemblyID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Product, EntityEdgeType.Has, input.ProductAssemblyID, input.ProductAssemblyID.ToString());
             }
             if (input.ComponentID != null && !string.IsNullOrEmpty(input.ComponentID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, EntityType.Product, EntityEdgeType.AttachedTo, input.ComponentID, input.ComponentID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Product, EntityEdgeType.Has, input.ComponentID, input.ComponentID.ToString());
             }
             if (input.UnitMeasureCode != null && !string.IsNullOrEmpty(input.UnitMeasureCode.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/ProductionUnitMeasure", EntityEdgeType.AttachedTo, input.UnitMeasureCode, input.UnitMeasureCode.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/ProductionUnitMeasure", EntityEdgeType.Has, input.UnitMeasureCode, input.UnitMeasureCode.ToString());
             }
 
             if (!data.OutgoingEdges.Any())

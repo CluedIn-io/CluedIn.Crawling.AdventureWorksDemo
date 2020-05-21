@@ -38,11 +38,11 @@ data.Codes.Add(new EntityCode("/SalesStore", AdventureWorksConstants.CodeOrigin,
 
 if(input.BusinessEntityID != null && !string.IsNullOrEmpty(input.BusinessEntityID.ToString()))
 {
-_factory.CreateOutgoingEntityReference(clue, "/PersonBusinessEntity", EntityEdgeType.AttachedTo, input.BusinessEntityID, input.BusinessEntityID.ToString());
+_factory.CreateOutgoingEntityReference(clue, "/PersonBusinessEntity", EntityEdgeType.Has, input.BusinessEntityID, input.BusinessEntityID.ToString());
 }
 if(input.SalesPersonID != null && !string.IsNullOrEmpty(input.SalesPersonID.ToString()))
 {
-_factory.CreateOutgoingEntityReference(clue, "/SalesSalesPerson", EntityEdgeType.AttachedTo, input.SalesPersonID, input.SalesPersonID.ToString());
+_factory.CreateOutgoingEntityReference(clue, "/SalesSalesPerson", EntityEdgeType.Has, input.SalesPersonID, input.SalesPersonID.ToString());
 }
 
 if (!data.OutgoingEdges.Any())

@@ -38,11 +38,11 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.FromCurrencyCode != null && !string.IsNullOrEmpty(input.FromCurrencyCode.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/SalesCurrency", EntityEdgeType.AttachedTo, input.FromCurrencyCode, input.FromCurrencyCode.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/SalesCurrency", "From", input.FromCurrencyCode, input.FromCurrencyCode.ToString());
             }
             if (input.ToCurrencyCode != null && !string.IsNullOrEmpty(input.ToCurrencyCode.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/SalesCurrency", EntityEdgeType.AttachedTo, input.ToCurrencyCode, input.ToCurrencyCode.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/SalesCurrency", "To", input.ToCurrencyCode, input.ToCurrencyCode.ToString());
             }
 
             if (!data.OutgoingEdges.Any())

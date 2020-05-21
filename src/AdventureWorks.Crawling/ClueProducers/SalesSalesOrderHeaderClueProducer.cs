@@ -39,35 +39,35 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.CustomerID != null && !string.IsNullOrEmpty(input.CustomerID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/SalesCustomer", EntityEdgeType.AttachedTo, input.CustomerID, input.CustomerID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/SalesCustomer", EntityEdgeType.For, input.CustomerID, input.CustomerID.ToString());
             }
             if (input.SalesPersonID != null && !string.IsNullOrEmpty(input.SalesPersonID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/SalesSalesPerson", EntityEdgeType.AttachedTo, input.SalesPersonID, input.SalesPersonID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/SalesSalesPerson", EntityEdgeType.ManagedBy, input.SalesPersonID, input.SalesPersonID.ToString());
             }
             if (input.TerritoryID != null && !string.IsNullOrEmpty(input.TerritoryID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/SalesSalesTerritory", EntityEdgeType.AttachedTo, input.TerritoryID, input.TerritoryID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/SalesSalesTerritory", EntityEdgeType.LocatedIn, input.TerritoryID, input.TerritoryID.ToString());
             }
             if (input.BillToAddressID != null && !string.IsNullOrEmpty(input.BillToAddressID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/PersonAddress", EntityEdgeType.AttachedTo, input.BillToAddressID, input.BillToAddressID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/PersonAddress", "Billed To", input.BillToAddressID, input.BillToAddressID.ToString());
             }
             if (input.ShipToAddressID != null && !string.IsNullOrEmpty(input.ShipToAddressID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/PersonAddress", EntityEdgeType.AttachedTo, input.ShipToAddressID, input.ShipToAddressID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/PersonAddress", "Shipped to", input.ShipToAddressID, input.ShipToAddressID.ToString());
             }
             if (input.ShipMethodID != null && !string.IsNullOrEmpty(input.ShipMethodID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/PurchasingShipMethod", EntityEdgeType.AttachedTo, input.ShipMethodID, input.ShipMethodID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/PurchasingShipMethod", "Via", input.ShipMethodID, input.ShipMethodID.ToString());
             }
             if (input.CreditCardID != null && !string.IsNullOrEmpty(input.CreditCardID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, EntityType.Payment.Card.CreditCard, EntityEdgeType.AttachedTo, input.CreditCardID, input.CreditCardID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Payment.Card.CreditCard, "Paid with", input.CreditCardID, input.CreditCardID.ToString());
             }
             if (input.CurrencyRateID != null && !string.IsNullOrEmpty(input.CurrencyRateID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/SalesCurrencyRate", EntityEdgeType.AttachedTo, input.CurrencyRateID, input.CurrencyRateID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/SalesCurrencyRate", EntityEdgeType.Has, input.CurrencyRateID, input.CurrencyRateID.ToString());
             }
 
             if (!data.OutgoingEdges.Any())

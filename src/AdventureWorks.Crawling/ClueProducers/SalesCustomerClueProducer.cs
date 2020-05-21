@@ -39,15 +39,15 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.PersonID != null && !string.IsNullOrEmpty(input.PersonID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, EntityType.Person, EntityEdgeType.AttachedTo, input.PersonID, input.PersonID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Person, EntityEdgeType.For, input.PersonID, input.PersonID.ToString());
             }
             if (input.StoreID != null && !string.IsNullOrEmpty(input.StoreID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/SalesStore", EntityEdgeType.AttachedTo, input.StoreID, input.StoreID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/SalesStore", EntityEdgeType.PartOf, input.StoreID, input.StoreID.ToString());
             }
             if (input.TerritoryID != null && !string.IsNullOrEmpty(input.TerritoryID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/SalesSalesTerritory", EntityEdgeType.AttachedTo, input.TerritoryID, input.TerritoryID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/SalesSalesTerritory", EntityEdgeType.LocatedIn, input.TerritoryID, input.TerritoryID.ToString());
             }
 
             if (!data.OutgoingEdges.Any())

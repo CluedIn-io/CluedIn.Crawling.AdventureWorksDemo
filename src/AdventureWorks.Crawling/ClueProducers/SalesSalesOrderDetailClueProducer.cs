@@ -38,15 +38,15 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.SalesOrderID != null && !string.IsNullOrEmpty(input.SalesOrderID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, EntityType.Sales.Sale, EntityEdgeType.AttachedTo, input.SalesOrderID, input.SalesOrderID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Sales.Sale, EntityEdgeType.PartOf, input.SalesOrderID, input.SalesOrderID.ToString());
             }
             if (input.ProductID != null && !string.IsNullOrEmpty(input.ProductID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/SalesSpecialOfferProduct", EntityEdgeType.AttachedTo, input.ProductID, input.ProductID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/SalesSpecialOfferProduct", EntityEdgeType.Has, input.ProductID, input.ProductID.ToString());
             }
             if (input.SpecialOfferID != null && !string.IsNullOrEmpty(input.SpecialOfferID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/SalesSpecialOfferProduct", EntityEdgeType.AttachedTo, input.SpecialOfferID, input.SpecialOfferID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/SalesSpecialOfferProduct", EntityEdgeType.Has, input.SpecialOfferID, input.SpecialOfferID.ToString());
             }
 
             if (!data.OutgoingEdges.Any())
