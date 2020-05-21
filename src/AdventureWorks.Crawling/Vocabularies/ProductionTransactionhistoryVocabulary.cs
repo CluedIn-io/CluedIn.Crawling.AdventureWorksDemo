@@ -7,8 +7,8 @@ public class ProductionTransactionHistoryVocabulary : SimpleVocabulary
 {
 public ProductionTransactionHistoryVocabulary()
 {
-VocabularyName = "Sql ProductionTransactionHistory"; // TODO: Set value
-KeyPrefix = "sql.ProductionTransactionHistory"; // TODO: Set value
+VocabularyName = "ProductionTransactionHistory"; // TODO: Set value
+KeyPrefix = "adventureWorks.ProductionTransactionHistory"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "ProductionTransactionHistory"; // TODO: Set value
 

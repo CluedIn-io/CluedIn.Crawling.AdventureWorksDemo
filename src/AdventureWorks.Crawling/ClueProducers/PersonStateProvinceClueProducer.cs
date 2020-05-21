@@ -4,6 +4,7 @@ using CluedIn.Crawling.Factories;
 using CluedIn.Crawling.Helpers;
 using CluedIn.Crawling.AdventureWorks.Vocabularies;
 using CluedIn.Crawling.AdventureWorks.Core.Models;
+using CluedIn.Crawling.AdventureWorks.Core;
 using CluedIn.Core;
 using RuleConstants = CluedIn.Core.Constants.Validation.Rules;
 using System.Linq;
@@ -23,11 +24,15 @@ public PersonStateProvinceClueProducer(IClueFactory factory)
 protected override Clue MakeClueImpl(PersonStateProvince input, Guid id)
 {
 
-var clue = _factory.Create("/PersonStateProvince", $"{input.StateProvinceID}", id);
+var clue = _factory.Create("/PersonStateProvince", $"{input.Rowguid}", id);
 
 							var data = clue.Data.EntityData;
 
 							
+
+data.Name = input.Name;
+
+data.Codes.Add(new EntityCode("/PersonStateProvince", AdventureWorksConstants.CodeOrigin, $"{input.StateProvinceID}"));
 
 //add edges
 
@@ -41,7 +46,9 @@ _factory.CreateOutgoingEntityReference(clue, "/SalesSalesTerritory", EntityEdgeT
 }
 
 if (!data.OutgoingEdges.Any())
+                          {
 			                _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
+                          }
 							
 
 var vocab = new PersonStateProvinceVocabulary();

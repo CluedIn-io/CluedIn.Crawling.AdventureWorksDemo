@@ -7,8 +7,8 @@ public class SalesSalesOrderHeaderVocabulary : SimpleVocabulary
 {
 public SalesSalesOrderHeaderVocabulary()
 {
-VocabularyName = "Sql SalesSalesOrderHeader"; // TODO: Set value
-KeyPrefix = "sql.SalesSalesOrderHeader"; // TODO: Set value
+VocabularyName = "SalesSalesOrderHeader"; // TODO: Set value
+KeyPrefix = "adventureWorks.SalesSalesOrderHeader"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "SalesSalesOrderHeader"; // TODO: Set value
 

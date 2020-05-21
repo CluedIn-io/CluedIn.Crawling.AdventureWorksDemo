@@ -7,8 +7,8 @@ public class ProductionCultureVocabulary : SimpleVocabulary
 {
 public ProductionCultureVocabulary()
 {
-VocabularyName = "Sql ProductionCulture"; // TODO: Set value
-KeyPrefix = "sql.ProductionCulture"; // TODO: Set value
+VocabularyName = "ProductionCulture"; // TODO: Set value
+KeyPrefix = "adventureWorks.ProductionCulture"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "ProductionCulture"; // TODO: Set value
 

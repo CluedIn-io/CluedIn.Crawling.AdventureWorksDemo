@@ -4,6 +4,7 @@ using CluedIn.Crawling.Factories;
 using CluedIn.Crawling.Helpers;
 using CluedIn.Crawling.AdventureWorks.Vocabularies;
 using CluedIn.Crawling.AdventureWorks.Core.Models;
+using CluedIn.Crawling.AdventureWorks.Core;
 using CluedIn.Core;
 using RuleConstants = CluedIn.Core.Constants.Validation.Rules;
 using System.Linq;
@@ -23,21 +24,29 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
         protected override Clue MakeClueImpl(HumanResourcesEmployee input, Guid id)
         {
 
-            var clue = _factory.Create("/HumanResourcesEmployee", $"{input.BusinessEntityID}", id);
+            var clue = _factory.Create(EntityType.Person, $"{input.Rowguid}", id);
 
             var data = clue.Data.EntityData;
 
 
 
+            data.Name = $"Employee {input.BusinessEntityID}";
+
+            data.Codes.Add(new EntityCode("/HumanResourcesEmployee", AdventureWorksConstants.CodeOrigin, $"{input.BusinessEntityID}"));
+            data.Codes.Add(new EntityCode("/HumanResourcesEmployee", AdventureWorksConstants.CodeOrigin, $"{input.NationalIDNumber}"));
+            data.Codes.Add(new EntityCode("/HumanResourcesEmployee", AdventureWorksConstants.CodeOrigin, $"{input.LoginID}"));
+
             //add edges
 
             if (input.BusinessEntityID != null && !string.IsNullOrEmpty(input.BusinessEntityID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/PersonBusinessEntity", EntityEdgeType.AttachedTo, input.BusinessEntityID, input.BusinessEntityID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, "/PersonPerson", EntityEdgeType.AttachedTo, input.BusinessEntityID, input.BusinessEntityID.ToString());
             }
 
             if (!data.OutgoingEdges.Any())
+            {
                 _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
+            }
 
 
             var vocab = new HumanResourcesEmployeeVocabulary();
@@ -45,7 +54,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
             data.Properties[vocab.BusinessEntityID] = input.BusinessEntityID.PrintIfAvailable();
             data.Properties[vocab.NationalIDNumber] = input.NationalIDNumber.PrintIfAvailable();
             data.Properties[vocab.LoginID] = input.LoginID.PrintIfAvailable();
-            data.Properties[vocab.OrganizationNode] = input.OrganizationNode.PrintIfAvailable();
+            //data.Properties[vocab.OrganizationNode]          = input.OrganizationNode.PrintIfAvailable();
             data.Properties[vocab.OrganizationLevel] = input.OrganizationLevel.PrintIfAvailable();
             data.Properties[vocab.JobTitle] = input.JobTitle.PrintIfAvailable();
             data.Properties[vocab.BirthDate] = input.BirthDate.PrintIfAvailable();

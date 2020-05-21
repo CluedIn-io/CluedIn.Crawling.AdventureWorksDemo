@@ -7,8 +7,8 @@ public class ProductionProductModelIllustrationVocabulary : SimpleVocabulary
 {
 public ProductionProductModelIllustrationVocabulary()
 {
-VocabularyName = "Sql ProductionProductModelIllustration"; // TODO: Set value
-KeyPrefix = "sql.ProductionProductModelIllustration"; // TODO: Set value
+VocabularyName = "ProductionProductModelIllustration"; // TODO: Set value
+KeyPrefix = "adventureWorks.ProductionProductModelIllustration"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "ProductionProductModelIllustration"; // TODO: Set value
 

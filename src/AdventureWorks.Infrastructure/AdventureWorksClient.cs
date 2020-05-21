@@ -41,7 +41,7 @@ namespace CluedIn.Crawling.AdventureWorks.Infrastructure
             _log = log ?? throw new ArgumentNullException(nameof(log));
         }
 
-        public IEnumerable<T> GetObject<T>() where T : BaseSqlEntity
+        public IEnumerable<T> GetObject<T>(string whereClause = null) where T : BaseSqlEntity
         {
             var tableName = ((DisplayNameAttribute)typeof(T).GetCustomAttribute(typeof(DisplayNameAttribute))).DisplayName;
 
@@ -55,7 +55,7 @@ namespace CluedIn.Crawling.AdventureWorks.Infrastructure
                         connection.Open();
                         reader = ActionExtensions.ExecuteWithRetry(() =>
                         {
-                            command.CommandText = $@"SELECT TOP 1000 * FROM {tableName}";
+                            command.CommandText = $@"SELECT TOP 100 * FROM {tableName} {whereClause}";
 
                             command.CommandTimeout = 180;
 

@@ -36,6 +36,10 @@ namespace CluedIn.Crawling.AdventureWorks.Integration.Test
             var count = fixture.ClueStorage.Clues.Count();
             var unique = fixture.ClueStorage.Clues.Distinct(new ClueComparer()).Count();
 
+            var clues = fixture.ClueStorage.Clues;
+
+            var notUnique = clues.Where(c => !fixture.ClueStorage.Clues.Distinct(new ClueComparer()).Contains(c)).ToList();
+
             //You could use this method to output info of all clues
             //fixture.PrintClues(output);
 

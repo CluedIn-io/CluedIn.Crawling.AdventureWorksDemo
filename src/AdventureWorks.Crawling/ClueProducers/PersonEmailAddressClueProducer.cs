@@ -4,6 +4,7 @@ using CluedIn.Crawling.Factories;
 using CluedIn.Crawling.Helpers;
 using CluedIn.Crawling.AdventureWorks.Vocabularies;
 using CluedIn.Crawling.AdventureWorks.Core.Models;
+using CluedIn.Crawling.AdventureWorks.Core;
 using CluedIn.Core;
 using RuleConstants = CluedIn.Core.Constants.Validation.Rules;
 using System.Linq;
@@ -23,21 +24,27 @@ public PersonEmailAddressClueProducer(IClueFactory factory)
 protected override Clue MakeClueImpl(PersonEmailAddress input, Guid id)
 {
 
-var clue = _factory.Create("/PersonEmailAddress", $"{input.BusinessEntityID}.{input.EmailAddressID}", id);
+var clue = _factory.Create("/PersonEmailAddress", $"{input.Rowguid}", id);
 
 							var data = clue.Data.EntityData;
 
 							
 
+data.Name = $"{input.EmailAddress}";
+
+data.Codes.Add(new EntityCode("/PersonEmailAddress", AdventureWorksConstants.CodeOrigin, $"{input.BusinessEntityID}.{input.EmailAddressID}"));
+
 //add edges
 
 if(input.BusinessEntityID != null && !string.IsNullOrEmpty(input.BusinessEntityID.ToString()))
 {
-_factory.CreateOutgoingEntityReference(clue, "/PersonBusinessEntity", EntityEdgeType.AttachedTo, input.BusinessEntityID, input.BusinessEntityID.ToString());
+_factory.CreateOutgoingEntityReference(clue, "/PersonPerson", EntityEdgeType.For, input.BusinessEntityID, input.BusinessEntityID.ToString());
 }
 
 if (!data.OutgoingEdges.Any())
+                          {
 			                _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
+                          }
 							
 
 var vocab = new PersonEmailAddressVocabulary();

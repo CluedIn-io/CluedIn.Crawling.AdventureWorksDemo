@@ -7,10 +7,10 @@ namespace CluedIn.Crawling.AdventureWorks.Vocabularies
     {
         public HumanResourcesDepartmentVocabulary()
         {
-            VocabularyName = "Sql HumanResourcesDepartment"; // TODO: Set value
-            KeyPrefix = "sql.HumanResourcesDepartment"; // TODO: Set value
+            VocabularyName = "HumanResourcesDepartment"; // TODO: Set value
+            KeyPrefix = "adventureWorks.HumanResourcesDepartment"; // TODO: Set value
             KeySeparator = ".";
-            Grouping = "HumanResourcesDepartment"; // TODO: Set value
+            Grouping = EntityType.Organization.Department; // TODO: Set value
 
             AddGroup("HumanResourcesDepartment Details", group =>
             {

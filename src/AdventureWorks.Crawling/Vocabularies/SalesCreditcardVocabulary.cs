@@ -7,8 +7,8 @@ public class SalesCreditCardVocabulary : SimpleVocabulary
 {
 public SalesCreditCardVocabulary()
 {
-VocabularyName = "Sql SalesCreditCard"; // TODO: Set value
-KeyPrefix = "sql.SalesCreditCard"; // TODO: Set value
+VocabularyName = "SalesCreditCard"; // TODO: Set value
+KeyPrefix = "adventureWorks.SalesCreditCard"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "SalesCreditCard"; // TODO: Set value
 

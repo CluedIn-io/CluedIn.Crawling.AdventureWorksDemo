@@ -7,8 +7,8 @@ public class PersonEmailAddressVocabulary : SimpleVocabulary
 {
 public PersonEmailAddressVocabulary()
 {
-VocabularyName = "Sql PersonEmailAddress"; // TODO: Set value
-KeyPrefix = "sql.PersonEmailAddress"; // TODO: Set value
+VocabularyName = "PersonEmailAddress"; // TODO: Set value
+KeyPrefix = "adventureWorks.PersonEmailAddress"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "PersonEmailAddress"; // TODO: Set value
 

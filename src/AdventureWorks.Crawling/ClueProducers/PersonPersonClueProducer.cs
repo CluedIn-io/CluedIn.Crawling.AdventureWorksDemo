@@ -4,6 +4,7 @@ using CluedIn.Crawling.Factories;
 using CluedIn.Crawling.Helpers;
 using CluedIn.Crawling.AdventureWorks.Vocabularies;
 using CluedIn.Crawling.AdventureWorks.Core.Models;
+using CluedIn.Crawling.AdventureWorks.Core;
 using CluedIn.Core;
 using RuleConstants = CluedIn.Core.Constants.Validation.Rules;
 using System.Linq;
@@ -23,11 +24,15 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
         protected override Clue MakeClueImpl(PersonPerson input, Guid id)
         {
 
-            var clue = _factory.Create("/PersonPerson", $"{input.BusinessEntityID}", id);
+            var clue = _factory.Create("/PersonPerson", $"{input.Rowguid}", id);
 
             var data = clue.Data.EntityData;
 
 
+
+            data.Name = $"{input.FirstName} {input.MiddleName} {input.LastName}";
+
+            data.Codes.Add(new EntityCode("/PersonPerson", AdventureWorksConstants.CodeOrigin, $"{input.BusinessEntityID}"));
 
             //add edges
 
@@ -37,7 +42,9 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
             }
 
             if (!data.OutgoingEdges.Any())
+            {
                 _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
+            }
 
 
             var vocab = new PersonPersonVocabulary();

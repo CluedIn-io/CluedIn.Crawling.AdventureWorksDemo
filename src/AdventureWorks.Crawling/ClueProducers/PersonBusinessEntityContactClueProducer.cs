@@ -4,6 +4,7 @@ using CluedIn.Crawling.Factories;
 using CluedIn.Crawling.Helpers;
 using CluedIn.Crawling.AdventureWorks.Vocabularies;
 using CluedIn.Crawling.AdventureWorks.Core.Models;
+using CluedIn.Crawling.AdventureWorks.Core;
 using CluedIn.Core;
 using RuleConstants = CluedIn.Core.Constants.Validation.Rules;
 using System.Linq;
@@ -23,11 +24,15 @@ public PersonBusinessEntityContactClueProducer(IClueFactory factory)
 protected override Clue MakeClueImpl(PersonBusinessEntityContact input, Guid id)
 {
 
-var clue = _factory.Create("/PersonBusinessEntityContact", $"{input.BusinessEntityID}.{input.PersonID}.{input.ContactTypeID}", id);
+var clue = _factory.Create("/PersonBusinessEntityContact", $"{input.Rowguid}", id);
 
 							var data = clue.Data.EntityData;
 
 							
+
+data.Name = $"BE Contact {input.BusinessEntityID}";
+
+data.Codes.Add(new EntityCode("/PersonBusinessEntityContact", AdventureWorksConstants.CodeOrigin, $"{input.BusinessEntityID}.{input.PersonID}.{input.ContactTypeID}"));
 
 //add edges
 
@@ -37,7 +42,7 @@ _factory.CreateOutgoingEntityReference(clue, "/PersonBusinessEntity", EntityEdge
 }
 if(input.PersonID != null && !string.IsNullOrEmpty(input.PersonID.ToString()))
 {
-_factory.CreateOutgoingEntityReference(clue, "/PersonBusinessEntity", EntityEdgeType.AttachedTo, input.PersonID, input.PersonID.ToString());
+_factory.CreateOutgoingEntityReference(clue, "/PersonPerson", EntityEdgeType.AttachedTo, input.PersonID, input.PersonID.ToString());
 }
 if(input.ContactTypeID != null && !string.IsNullOrEmpty(input.ContactTypeID.ToString()))
 {
@@ -45,7 +50,9 @@ _factory.CreateOutgoingEntityReference(clue, "/PersonContactType", EntityEdgeTyp
 }
 
 if (!data.OutgoingEdges.Any())
+                          {
 			                _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
+                          }
 							
 
 var vocab = new PersonBusinessEntityContactVocabulary();

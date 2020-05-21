@@ -7,8 +7,8 @@ public class PersonStateProvinceVocabulary : SimpleVocabulary
 {
 public PersonStateProvinceVocabulary()
 {
-VocabularyName = "Sql PersonStateProvince"; // TODO: Set value
-KeyPrefix = "sql.PersonStateProvince"; // TODO: Set value
+VocabularyName = "PersonStateProvince"; // TODO: Set value
+KeyPrefix = "adventureWorks.PersonStateProvince"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "PersonStateProvince"; // TODO: Set value
 

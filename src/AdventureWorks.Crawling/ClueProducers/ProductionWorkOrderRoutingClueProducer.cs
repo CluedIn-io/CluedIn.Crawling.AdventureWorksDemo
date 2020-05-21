@@ -4,6 +4,7 @@ using CluedIn.Crawling.Factories;
 using CluedIn.Crawling.Helpers;
 using CluedIn.Crawling.AdventureWorks.Vocabularies;
 using CluedIn.Crawling.AdventureWorks.Core.Models;
+using CluedIn.Crawling.AdventureWorks.Core;
 using CluedIn.Core;
 using RuleConstants = CluedIn.Core.Constants.Validation.Rules;
 using System.Linq;
@@ -29,6 +30,10 @@ var clue = _factory.Create("/ProductionWorkOrderRouting", $"{input.WorkOrderID}.
 
 							
 
+data.Name = $"Work Order Routing for {input.WorkOrderID} {input.ProductID}";
+
+
+
 //add edges
 
 if(input.WorkOrderID != null && !string.IsNullOrEmpty(input.WorkOrderID.ToString()))
@@ -41,7 +46,9 @@ _factory.CreateOutgoingEntityReference(clue, "/ProductionLocation", EntityEdgeTy
 }
 
 if (!data.OutgoingEdges.Any())
+                          {
 			                _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
+                          }
 							
 
 var vocab = new ProductionWorkOrderRoutingVocabulary();

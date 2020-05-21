@@ -19,7 +19,7 @@ namespace CluedIn.Crawling.AdventureWorks.Core.Models
             City = reader.GetStringValue("City");
             StateProvinceID = reader.GetNullableValue<int?>("StateProvinceID");
             PostalCode = reader.GetStringValue("PostalCode");
-            SpatialLocation = reader.GetStringValue("SpatialLocation");
+            //SpatialLocation = reader.GetStringValue("SpatialLocation");
             Rowguid = reader.GetStringValue("rowguid");
             ModifiedDate = reader.GetStringValue("ModifiedDate");
         }
@@ -30,7 +30,7 @@ namespace CluedIn.Crawling.AdventureWorks.Core.Models
         public string City { get; private set; }
         public int? StateProvinceID { get; private set; }
         public string PostalCode { get; private set; }
-        public string SpatialLocation { get; private set; }
+        //public string SpatialLocation { get; private set; }
         public string Rowguid { get; private set; }
         public string ModifiedDate { get; private set; }
     }

@@ -7,8 +7,8 @@ public class SalesSpecialOfferProductVocabulary : SimpleVocabulary
 {
 public SalesSpecialOfferProductVocabulary()
 {
-VocabularyName = "Sql SalesSpecialOfferProduct"; // TODO: Set value
-KeyPrefix = "sql.SalesSpecialOfferProduct"; // TODO: Set value
+VocabularyName = "SalesSpecialOfferProduct"; // TODO: Set value
+KeyPrefix = "adventureWorks.SalesSpecialOfferProduct"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "SalesSpecialOfferProduct"; // TODO: Set value
 

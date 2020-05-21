@@ -7,8 +7,8 @@ public class ProductionUnitMeasureVocabulary : SimpleVocabulary
 {
 public ProductionUnitMeasureVocabulary()
 {
-VocabularyName = "Sql ProductionUnitMeasure"; // TODO: Set value
-KeyPrefix = "sql.ProductionUnitMeasure"; // TODO: Set value
+VocabularyName = "ProductionUnitMeasure"; // TODO: Set value
+KeyPrefix = "adventureWorks.ProductionUnitMeasure"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "ProductionUnitMeasure"; // TODO: Set value
 

@@ -4,6 +4,7 @@ using CluedIn.Crawling.Factories;
 using CluedIn.Crawling.Helpers;
 using CluedIn.Crawling.AdventureWorks.Vocabularies;
 using CluedIn.Crawling.AdventureWorks.Core.Models;
+using CluedIn.Crawling.AdventureWorks.Core;
 using CluedIn.Core;
 using RuleConstants = CluedIn.Core.Constants.Validation.Rules;
 using System.Linq;
@@ -29,11 +30,15 @@ var clue = _factory.Create("/HumanResourcesEmployeeDepartmentHistory", $"{input.
 
 							
 
+data.Name = $"Shift {input.StartDate} - {input.EndDate}";
+
+
+
 //add edges
 
 if(input.BusinessEntityID != null && !string.IsNullOrEmpty(input.BusinessEntityID.ToString()))
 {
-_factory.CreateOutgoingEntityReference(clue, "/PersonBusinessEntity", EntityEdgeType.AttachedTo, input.BusinessEntityID, input.BusinessEntityID.ToString());
+_factory.CreateOutgoingEntityReference(clue, "/HumanResourcesEmployee", EntityEdgeType.AttachedTo, input.BusinessEntityID, input.BusinessEntityID.ToString());
 }
 if(input.DepartmentID != null && !string.IsNullOrEmpty(input.DepartmentID.ToString()))
 {
@@ -45,7 +50,9 @@ _factory.CreateOutgoingEntityReference(clue, "/HumanResourcesShift", EntityEdgeT
 }
 
 if (!data.OutgoingEdges.Any())
+                          {
 			                _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
+                          }
 							
 
 var vocab = new HumanResourcesEmployeeDepartmentHistoryVocabulary();

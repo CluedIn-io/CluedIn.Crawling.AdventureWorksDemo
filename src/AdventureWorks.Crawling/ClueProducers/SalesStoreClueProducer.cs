@@ -4,6 +4,7 @@ using CluedIn.Crawling.Factories;
 using CluedIn.Crawling.Helpers;
 using CluedIn.Crawling.AdventureWorks.Vocabularies;
 using CluedIn.Crawling.AdventureWorks.Core.Models;
+using CluedIn.Crawling.AdventureWorks.Core;
 using CluedIn.Core;
 using RuleConstants = CluedIn.Core.Constants.Validation.Rules;
 using System.Linq;
@@ -23,11 +24,15 @@ public SalesStoreClueProducer(IClueFactory factory)
 protected override Clue MakeClueImpl(SalesStore input, Guid id)
 {
 
-var clue = _factory.Create("/SalesStore", $"{input.BusinessEntityID}", id);
+var clue = _factory.Create("/SalesStore", $"{input.Rowguid}", id);
 
 							var data = clue.Data.EntityData;
 
 							
+
+data.Name = input.Name;
+
+data.Codes.Add(new EntityCode("/SalesStore", AdventureWorksConstants.CodeOrigin, $"{input.BusinessEntityID}"));
 
 //add edges
 
@@ -37,11 +42,13 @@ _factory.CreateOutgoingEntityReference(clue, "/PersonBusinessEntity", EntityEdge
 }
 if(input.SalesPersonID != null && !string.IsNullOrEmpty(input.SalesPersonID.ToString()))
 {
-_factory.CreateOutgoingEntityReference(clue, "/PersonBusinessEntity", EntityEdgeType.AttachedTo, input.SalesPersonID, input.SalesPersonID.ToString());
+_factory.CreateOutgoingEntityReference(clue, "/SalesSalesPerson", EntityEdgeType.AttachedTo, input.SalesPersonID, input.SalesPersonID.ToString());
 }
 
 if (!data.OutgoingEdges.Any())
+                          {
 			                _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
+                          }
 							
 
 var vocab = new SalesStoreVocabulary();

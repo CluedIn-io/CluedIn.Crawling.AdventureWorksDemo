@@ -7,8 +7,8 @@ public class ProductionScrapReasonVocabulary : SimpleVocabulary
 {
 public ProductionScrapReasonVocabulary()
 {
-VocabularyName = "Sql ProductionScrapReason"; // TODO: Set value
-KeyPrefix = "sql.ProductionScrapReason"; // TODO: Set value
+VocabularyName = "ProductionScrapReason"; // TODO: Set value
+KeyPrefix = "adventureWorks.ProductionScrapReason"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "ProductionScrapReason"; // TODO: Set value
 

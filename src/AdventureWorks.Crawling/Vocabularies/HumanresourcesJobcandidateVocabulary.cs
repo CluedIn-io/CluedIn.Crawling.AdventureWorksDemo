@@ -7,8 +7,8 @@ public class HumanResourcesJobCandidateVocabulary : SimpleVocabulary
 {
 public HumanResourcesJobCandidateVocabulary()
 {
-VocabularyName = "Sql HumanResourcesJobCandidate"; // TODO: Set value
-KeyPrefix = "sql.HumanResourcesJobCandidate"; // TODO: Set value
+VocabularyName = "HumanResourcesJobCandidate"; // TODO: Set value
+KeyPrefix = "adventureWorks.HumanResourcesJobCandidate"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "HumanResourcesJobCandidate"; // TODO: Set value
 

@@ -7,8 +7,8 @@ public class ProductionWorkOrderVocabulary : SimpleVocabulary
 {
 public ProductionWorkOrderVocabulary()
 {
-VocabularyName = "Sql ProductionWorkOrder"; // TODO: Set value
-KeyPrefix = "sql.ProductionWorkOrder"; // TODO: Set value
+VocabularyName = "ProductionWorkOrder"; // TODO: Set value
+KeyPrefix = "adventureWorks.ProductionWorkOrder"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "ProductionWorkOrder"; // TODO: Set value
 

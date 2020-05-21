@@ -7,8 +7,8 @@ public class PersonAddressVocabulary : SimpleVocabulary
 {
 public PersonAddressVocabulary()
 {
-VocabularyName = "Sql PersonAddress"; // TODO: Set value
-KeyPrefix = "sql.PersonAddress"; // TODO: Set value
+VocabularyName = "PersonAddress"; // TODO: Set value
+KeyPrefix = "adventureWorks.PersonAddress"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "PersonAddress"; // TODO: Set value
 
@@ -20,7 +20,7 @@ AddressLine2              = group.Add(new VocabularyKey("addressLine2", Vocabula
 City                      = group.Add(new VocabularyKey("city", VocabularyKeyDataType.Text, VocabularyKeyVisibility.Visible).WithDisplayName("City").WithDescription("Name of the city."));
 StateProvinceID           = group.Add(new VocabularyKey("stateProvinceID", VocabularyKeyDataType.Integer, VocabularyKeyVisibility.Visible).WithDisplayName("State Province ID").WithDescription("Unique identification number for the state or province. Foreign key to StateProvince table."));
 PostalCode                = group.Add(new VocabularyKey("postalCode", VocabularyKeyDataType.Text, VocabularyKeyVisibility.Visible).WithDisplayName("Postal Code").WithDescription("Postal code for the street address."));
-SpatialLocation           = group.Add(new VocabularyKey("spatialLocation", VocabularyKeyDataType.Text, VocabularyKeyVisibility.Visible).WithDisplayName("Spatial Location").WithDescription("Latitude and longitude of this address."));
+//SpatialLocation           = group.Add(new VocabularyKey("spatialLocation", VocabularyKeyDataType.Text, VocabularyKeyVisibility.Visible).WithDisplayName("Spatial Location").WithDescription("Latitude and longitude of this address."));
 Rowguid                   = group.Add(new VocabularyKey("rowguid", VocabularyKeyDataType.Text, VocabularyKeyVisibility.Visible).WithDisplayName("rowguid").WithDescription("ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."));
 ModifiedDate              = group.Add(new VocabularyKey("modifiedDate", VocabularyKeyDataType.DateTime, VocabularyKeyVisibility.Visible).WithDisplayName("Modified Date").WithDescription("Date and time the record was last updated."));
 });
@@ -32,7 +32,7 @@ public VocabularyKey AddressLine2 { get; private set; }
 public VocabularyKey City { get; private set; }
 public VocabularyKey StateProvinceID { get; private set; }
 public VocabularyKey PostalCode { get; private set; }
-public VocabularyKey SpatialLocation { get; private set; }
+//public VocabularyKey SpatialLocation { get; private set; }
 public VocabularyKey Rowguid { get; private set; }
 public VocabularyKey ModifiedDate { get; private set; }
 }

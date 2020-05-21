@@ -7,8 +7,8 @@ public class ProductionProductCostHistoryVocabulary : SimpleVocabulary
 {
 public ProductionProductCostHistoryVocabulary()
 {
-VocabularyName = "Sql ProductionProductCostHistory"; // TODO: Set value
-KeyPrefix = "sql.ProductionProductCostHistory"; // TODO: Set value
+VocabularyName = "ProductionProductCostHistory"; // TODO: Set value
+KeyPrefix = "adventureWorks.ProductionProductCostHistory"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "ProductionProductCostHistory"; // TODO: Set value
 

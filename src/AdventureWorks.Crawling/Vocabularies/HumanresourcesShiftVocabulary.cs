@@ -7,8 +7,8 @@ public class HumanResourcesShiftVocabulary : SimpleVocabulary
 {
 public HumanResourcesShiftVocabulary()
 {
-VocabularyName = "Sql HumanResourcesShift"; // TODO: Set value
-KeyPrefix = "sql.HumanResourcesShift"; // TODO: Set value
+VocabularyName = "HumanResourcesShift"; // TODO: Set value
+KeyPrefix = "adventureWorks.HumanResourcesShift"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "HumanResourcesShift"; // TODO: Set value
 

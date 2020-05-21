@@ -7,8 +7,8 @@ public class HumanResourcesEmployeeDepartmentHistoryVocabulary : SimpleVocabular
 {
 public HumanResourcesEmployeeDepartmentHistoryVocabulary()
 {
-VocabularyName = "Sql HumanResourcesEmployeeDepartmentHistory"; // TODO: Set value
-KeyPrefix = "sql.HumanResourcesEmployeeDepartmentHistory"; // TODO: Set value
+VocabularyName = "HumanResourcesEmployeeDepartmentHistory"; // TODO: Set value
+KeyPrefix = "adventureWorks.HumanResourcesEmployeeDepartmentHistory"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "HumanResourcesEmployeeDepartmentHistory"; // TODO: Set value
 

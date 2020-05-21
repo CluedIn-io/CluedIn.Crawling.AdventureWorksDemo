@@ -7,8 +7,8 @@ public class ProductionProductModelProductDescriptionCultureVocabulary : SimpleV
 {
 public ProductionProductModelProductDescriptionCultureVocabulary()
 {
-VocabularyName = "Sql ProductionProductModelProductDescriptionCulture"; // TODO: Set value
-KeyPrefix = "sql.ProductionProductModelProductDescriptionCulture"; // TODO: Set value
+VocabularyName = "ProductionProductModelProductDescriptionCulture"; // TODO: Set value
+KeyPrefix = "adventureWorks.ProductionProductModelProductDescriptionCulture"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "ProductionProductModelProductDescriptionCulture"; // TODO: Set value
 

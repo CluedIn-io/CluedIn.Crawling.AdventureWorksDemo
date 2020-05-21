@@ -7,8 +7,8 @@ public class ProductionProductDocumentVocabulary : SimpleVocabulary
 {
 public ProductionProductDocumentVocabulary()
 {
-VocabularyName = "Sql ProductionProductDocument"; // TODO: Set value
-KeyPrefix = "sql.ProductionProductDocument"; // TODO: Set value
+VocabularyName = "ProductionProductDocument"; // TODO: Set value
+KeyPrefix = "adventureWorks.ProductionProductDocument"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "ProductionProductDocument"; // TODO: Set value
 

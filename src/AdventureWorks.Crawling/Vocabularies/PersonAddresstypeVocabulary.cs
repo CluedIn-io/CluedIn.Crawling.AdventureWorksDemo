@@ -7,8 +7,8 @@ public class PersonAddressTypeVocabulary : SimpleVocabulary
 {
 public PersonAddressTypeVocabulary()
 {
-VocabularyName = "Sql PersonAddressType"; // TODO: Set value
-KeyPrefix = "sql.PersonAddressType"; // TODO: Set value
+VocabularyName = "PersonAddressType"; // TODO: Set value
+KeyPrefix = "adventureWorks.PersonAddressType"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "PersonAddressType"; // TODO: Set value
 

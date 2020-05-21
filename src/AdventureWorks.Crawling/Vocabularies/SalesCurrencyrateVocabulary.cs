@@ -7,8 +7,8 @@ public class SalesCurrencyRateVocabulary : SimpleVocabulary
 {
 public SalesCurrencyRateVocabulary()
 {
-VocabularyName = "Sql SalesCurrencyRate"; // TODO: Set value
-KeyPrefix = "sql.SalesCurrencyRate"; // TODO: Set value
+VocabularyName = "SalesCurrencyRate"; // TODO: Set value
+KeyPrefix = "adventureWorks.SalesCurrencyRate"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "SalesCurrencyRate"; // TODO: Set value
 

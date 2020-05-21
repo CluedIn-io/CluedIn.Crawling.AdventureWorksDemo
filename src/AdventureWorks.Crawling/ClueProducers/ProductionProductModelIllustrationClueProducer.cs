@@ -4,6 +4,7 @@ using CluedIn.Crawling.Factories;
 using CluedIn.Crawling.Helpers;
 using CluedIn.Crawling.AdventureWorks.Vocabularies;
 using CluedIn.Crawling.AdventureWorks.Core.Models;
+using CluedIn.Crawling.AdventureWorks.Core;
 using CluedIn.Core;
 using RuleConstants = CluedIn.Core.Constants.Validation.Rules;
 using System.Linq;
@@ -29,6 +30,10 @@ var clue = _factory.Create("/ProductionProductModelIllustration", $"{input.Produ
 
 							
 
+data.Name = $"Product Model Illustration {input.ProductModelID}";
+
+
+
 //add edges
 
 if(input.ProductModelID != null && !string.IsNullOrEmpty(input.ProductModelID.ToString()))
@@ -41,7 +46,9 @@ _factory.CreateOutgoingEntityReference(clue, "/ProductionIllustration", EntityEd
 }
 
 if (!data.OutgoingEdges.Any())
+                          {
 			                _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
+                          }
 							
 
 var vocab = new ProductionProductModelIllustrationVocabulary();

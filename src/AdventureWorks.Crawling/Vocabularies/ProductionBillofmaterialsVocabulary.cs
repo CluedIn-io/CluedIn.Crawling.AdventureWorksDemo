@@ -7,8 +7,8 @@ public class ProductionBillOfMaterialsVocabulary : SimpleVocabulary
 {
 public ProductionBillOfMaterialsVocabulary()
 {
-VocabularyName = "Sql ProductionBillOfMaterials"; // TODO: Set value
-KeyPrefix = "sql.ProductionBillOfMaterials"; // TODO: Set value
+VocabularyName = "ProductionBillOfMaterials"; // TODO: Set value
+KeyPrefix = "adventureWorks.ProductionBillOfMaterials"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "ProductionBillOfMaterials"; // TODO: Set value
 

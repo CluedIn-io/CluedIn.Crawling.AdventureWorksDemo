@@ -7,8 +7,8 @@ public class PersonBusinessEntityAddressVocabulary : SimpleVocabulary
 {
 public PersonBusinessEntityAddressVocabulary()
 {
-VocabularyName = "Sql PersonBusinessEntityAddress"; // TODO: Set value
-KeyPrefix = "sql.PersonBusinessEntityAddress"; // TODO: Set value
+VocabularyName = "PersonBusinessEntityAddress"; // TODO: Set value
+KeyPrefix = "adventureWorks.PersonBusinessEntityAddress"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "PersonBusinessEntityAddress"; // TODO: Set value
 

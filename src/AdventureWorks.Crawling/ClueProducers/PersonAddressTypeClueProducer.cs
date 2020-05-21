@@ -4,6 +4,7 @@ using CluedIn.Crawling.Factories;
 using CluedIn.Crawling.Helpers;
 using CluedIn.Crawling.AdventureWorks.Vocabularies;
 using CluedIn.Crawling.AdventureWorks.Core.Models;
+using CluedIn.Crawling.AdventureWorks.Core;
 using CluedIn.Core;
 using RuleConstants = CluedIn.Core.Constants.Validation.Rules;
 using System.Linq;
@@ -23,17 +24,23 @@ public PersonAddressTypeClueProducer(IClueFactory factory)
 protected override Clue MakeClueImpl(PersonAddressType input, Guid id)
 {
 
-var clue = _factory.Create("/PersonAddressType", $"{input.AddressTypeID}", id);
+var clue = _factory.Create("/PersonAddressType", $"{input.Rowguid}", id);
 
 							var data = clue.Data.EntityData;
 
 							
 
+data.Name = input.Name;
+
+data.Codes.Add(new EntityCode("/PersonAddressType", AdventureWorksConstants.CodeOrigin, $"{input.AddressTypeID}"));
+
 //add edges
 
 
 if (!data.OutgoingEdges.Any())
+                          {
 			                _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
+                          }
 							
 
 var vocab = new PersonAddressTypeVocabulary();

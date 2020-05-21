@@ -7,8 +7,8 @@ public class SalesCountryRegionCurrencyVocabulary : SimpleVocabulary
 {
 public SalesCountryRegionCurrencyVocabulary()
 {
-VocabularyName = "Sql SalesCountryRegionCurrency"; // TODO: Set value
-KeyPrefix = "sql.SalesCountryRegionCurrency"; // TODO: Set value
+VocabularyName = "SalesCountryRegionCurrency"; // TODO: Set value
+KeyPrefix = "adventureWorks.SalesCountryRegionCurrency"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "SalesCountryRegionCurrency"; // TODO: Set value
 

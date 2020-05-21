@@ -7,8 +7,8 @@ public class ProductionWorkOrderRoutingVocabulary : SimpleVocabulary
 {
 public ProductionWorkOrderRoutingVocabulary()
 {
-VocabularyName = "Sql ProductionWorkOrderRouting"; // TODO: Set value
-KeyPrefix = "sql.ProductionWorkOrderRouting"; // TODO: Set value
+VocabularyName = "ProductionWorkOrderRouting"; // TODO: Set value
+KeyPrefix = "adventureWorks.ProductionWorkOrderRouting"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "ProductionWorkOrderRouting"; // TODO: Set value
 

@@ -4,6 +4,7 @@ using CluedIn.Crawling.Factories;
 using CluedIn.Crawling.Helpers;
 using CluedIn.Crawling.AdventureWorks.Vocabularies;
 using CluedIn.Crawling.AdventureWorks.Core.Models;
+using CluedIn.Crawling.AdventureWorks.Core;
 using CluedIn.Core;
 using RuleConstants = CluedIn.Core.Constants.Validation.Rules;
 using System.Linq;
@@ -23,11 +24,15 @@ public ProductionProductSubcategoryClueProducer(IClueFactory factory)
 protected override Clue MakeClueImpl(ProductionProductSubcategory input, Guid id)
 {
 
-var clue = _factory.Create("/ProductionProductSubcategory", $"{input.ProductSubcategoryID}", id);
+var clue = _factory.Create("/ProductionProductSubcategory", $"{input.Rowguid}", id);
 
 							var data = clue.Data.EntityData;
 
 							
+
+data.Name = input.Name;
+
+data.Codes.Add(new EntityCode("/ProductionProductSubcategory", AdventureWorksConstants.CodeOrigin, $"{input.ProductSubcategoryID}"));
 
 //add edges
 
@@ -37,7 +42,9 @@ _factory.CreateOutgoingEntityReference(clue, "/ProductionProductCategory", Entit
 }
 
 if (!data.OutgoingEdges.Any())
+                          {
 			                _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
+                          }
 							
 
 var vocab = new ProductionProductSubcategoryVocabulary();

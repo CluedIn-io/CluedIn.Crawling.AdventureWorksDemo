@@ -7,17 +7,17 @@ namespace CluedIn.Crawling.AdventureWorks.Vocabularies
     {
         public HumanResourcesEmployeeVocabulary()
         {
-            VocabularyName = "Sql HumanResourcesEmployee"; // TODO: Set value
-            KeyPrefix = "sql.HumanResourcesEmployee"; // TODO: Set value
+            VocabularyName = "HumanResourcesEmployee"; // TODO: Set value
+            KeyPrefix = "adventureWorks.HumanResourcesEmployee"; // TODO: Set value
             KeySeparator = ".";
-            Grouping = "HumanResourcesEmployee"; // TODO: Set value
+            Grouping = EntityType.Person; // TODO: Set value
 
             AddGroup("HumanResourcesEmployee Details", group =>
             {
                 BusinessEntityID = group.Add(new VocabularyKey("businessEntityID", VocabularyKeyDataType.Integer, VocabularyKeyVisibility.HiddenInFrontendUI).WithDisplayName("Business Entity ID").WithDescription("Primary key for Employee records.  Foreign key to BusinessEntity.BusinessEntityID."));
                 NationalIDNumber = group.Add(new VocabularyKey("nationalIDNumber", VocabularyKeyDataType.Text, VocabularyKeyVisibility.Visible).WithDisplayName("National ID Number").WithDescription("Unique national identification number such as a social security number."));
                 LoginID = group.Add(new VocabularyKey("loginID", VocabularyKeyDataType.Text, VocabularyKeyVisibility.Visible).WithDisplayName("Login ID").WithDescription("Network login."));
-                OrganizationNode = group.Add(new VocabularyKey("organizationNode", VocabularyKeyDataType.Text, VocabularyKeyVisibility.Visible).WithDisplayName("Organization Node").WithDescription("Where the employee is located in corporate hierarchy."));
+                //OrganizationNode = group.Add(new VocabularyKey("organizationNode", VocabularyKeyDataType.Text, VocabularyKeyVisibility.Visible).WithDisplayName("Organization Node").WithDescription("Where the employee is located in corporate hierarchy."));
                 OrganizationLevel = group.Add(new VocabularyKey("organizationLevel", VocabularyKeyDataType.Integer, VocabularyKeyVisibility.Visible).WithDisplayName("Organization Level").WithDescription("The depth of the employee in the corporate hierarchy."));
                 JobTitle = group.Add(new VocabularyKey("jobTitle", VocabularyKeyDataType.Text, VocabularyKeyVisibility.Visible).WithDisplayName("Job Title").WithDescription("Work title such as Buyer or Sales Representative."));
                 BirthDate = group.Add(new VocabularyKey("birthDate", VocabularyKeyDataType.Text, VocabularyKeyVisibility.Visible).WithDisplayName("Birth Date").WithDescription("Date of birth."));
@@ -36,7 +36,7 @@ namespace CluedIn.Crawling.AdventureWorks.Vocabularies
         public VocabularyKey BusinessEntityID { get; private set; }
         public VocabularyKey NationalIDNumber { get; private set; }
         public VocabularyKey LoginID { get; private set; }
-        public VocabularyKey OrganizationNode { get; private set; }
+        //public VocabularyKey OrganizationNode { get; private set; }
         public VocabularyKey OrganizationLevel { get; private set; }
         public VocabularyKey JobTitle { get; private set; }
         public VocabularyKey BirthDate { get; private set; }

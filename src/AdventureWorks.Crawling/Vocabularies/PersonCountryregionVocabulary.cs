@@ -7,8 +7,8 @@ public class PersonCountryRegionVocabulary : SimpleVocabulary
 {
 public PersonCountryRegionVocabulary()
 {
-VocabularyName = "Sql PersonCountryRegion"; // TODO: Set value
-KeyPrefix = "sql.PersonCountryRegion"; // TODO: Set value
+VocabularyName = "PersonCountryRegion"; // TODO: Set value
+KeyPrefix = "adventureWorks.PersonCountryRegion"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "PersonCountryRegion"; // TODO: Set value
 

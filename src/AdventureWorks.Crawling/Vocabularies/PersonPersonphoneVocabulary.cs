@@ -7,8 +7,8 @@ public class PersonPersonPhoneVocabulary : SimpleVocabulary
 {
 public PersonPersonPhoneVocabulary()
 {
-VocabularyName = "Sql PersonPersonPhone"; // TODO: Set value
-KeyPrefix = "sql.PersonPersonPhone"; // TODO: Set value
+VocabularyName = "PersonPersonPhone"; // TODO: Set value
+KeyPrefix = "adventureWorks.PersonPersonPhone"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "PersonPersonPhone"; // TODO: Set value
 

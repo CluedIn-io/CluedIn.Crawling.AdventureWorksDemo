@@ -4,6 +4,7 @@ using CluedIn.Crawling.Factories;
 using CluedIn.Crawling.Helpers;
 using CluedIn.Crawling.AdventureWorks.Vocabularies;
 using CluedIn.Crawling.AdventureWorks.Core.Models;
+using CluedIn.Crawling.AdventureWorks.Core;
 using CluedIn.Core;
 using RuleConstants = CluedIn.Core.Constants.Validation.Rules;
 using System.Linq;
@@ -11,60 +12,66 @@ using System;
 
 namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 {
-public class SalesSalesTerritoryHistoryClueProducer : BaseClueProducer<SalesSalesTerritoryHistory>
-{
-private readonly IClueFactory _factory;
+    public class SalesSalesTerritoryHistoryClueProducer : BaseClueProducer<SalesSalesTerritoryHistory>
+    {
+        private readonly IClueFactory _factory;
 
-public SalesSalesTerritoryHistoryClueProducer(IClueFactory factory)
-							{
-								_factory = factory;
-							}
+        public SalesSalesTerritoryHistoryClueProducer(IClueFactory factory)
+        {
+            _factory = factory;
+        }
 
-protected override Clue MakeClueImpl(SalesSalesTerritoryHistory input, Guid id)
-{
+        protected override Clue MakeClueImpl(SalesSalesTerritoryHistory input, Guid id)
+        {
 
-var clue = _factory.Create("/SalesSalesTerritoryHistory", $"{input.BusinessEntityID}.{input.TerritoryID}.{input.StartDate}", id);
+            var clue = _factory.Create("/SalesSalesTerritoryHistory", $"{input.Rowguid}", id);
 
-							var data = clue.Data.EntityData;
+            var data = clue.Data.EntityData;
 
-							
 
-//add edges
 
-if(input.BusinessEntityID != null && !string.IsNullOrEmpty(input.BusinessEntityID.ToString()))
-{
-_factory.CreateOutgoingEntityReference(clue, "/PersonBusinessEntity", EntityEdgeType.AttachedTo, input.BusinessEntityID, input.BusinessEntityID.ToString());
-}
-if(input.TerritoryID != null && !string.IsNullOrEmpty(input.TerritoryID.ToString()))
-{
-_factory.CreateOutgoingEntityReference(clue, "/SalesSalesTerritory", EntityEdgeType.AttachedTo, input.TerritoryID, input.TerritoryID.ToString());
-}
+            data.Name = $"Territory for {input.BusinessEntityID} in {input.TerritoryID} starting {input.StartDate}";
 
-if (!data.OutgoingEdges.Any())
-			                _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
-							
+            data.Codes.Add(new EntityCode("/SalesSalesTerritoryHistory", AdventureWorksConstants.CodeOrigin, $"{input.BusinessEntityID}.{input.TerritoryID}.{input.StartDate}"));
 
-var vocab = new SalesSalesTerritoryHistoryVocabulary();
+            //add edges
 
-data.Properties[vocab.BusinessEntityID]          = input.BusinessEntityID.PrintIfAvailable();
-data.Properties[vocab.TerritoryID]               = input.TerritoryID.PrintIfAvailable();
-data.Properties[vocab.StartDate]                 = input.StartDate.PrintIfAvailable();
-data.Properties[vocab.EndDate]                   = input.EndDate.PrintIfAvailable();
-data.Properties[vocab.Rowguid]                   = input.Rowguid.PrintIfAvailable();
-data.Properties[vocab.ModifiedDate]              = input.ModifiedDate.PrintIfAvailable();
+            if (input.BusinessEntityID != null && !string.IsNullOrEmpty(input.BusinessEntityID.ToString()))
+            {
+                _factory.CreateOutgoingEntityReference(clue, "/SalesSalesPerson", EntityEdgeType.AttachedTo, input.BusinessEntityID, input.BusinessEntityID.ToString());
+            }
+            if (input.TerritoryID != null && !string.IsNullOrEmpty(input.TerritoryID.ToString()))
+            {
+                _factory.CreateOutgoingEntityReference(clue, "/SalesSalesTerritory", EntityEdgeType.AttachedTo, input.TerritoryID, input.TerritoryID.ToString());
+            }
 
-clue.ValidationRuleSuppressions.AddRange(new[]
-							{
-								RuleConstants.METADATA_001_Name_MustBeSet,
-								RuleConstants.PROPERTIES_001_MustExist,
-								RuleConstants.METADATA_002_Uri_MustBeSet,
-								RuleConstants.METADATA_003_Author_Name_MustBeSet,
-								RuleConstants.METADATA_005_PreviewImage_RawData_MustBeSet
-							});
+            if (!data.OutgoingEdges.Any())
+            {
+                _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
+            }
 
-return clue;
-}
-}
+
+            var vocab = new SalesSalesTerritoryHistoryVocabulary();
+
+            data.Properties[vocab.BusinessEntityID] = input.BusinessEntityID.PrintIfAvailable();
+            data.Properties[vocab.TerritoryID] = input.TerritoryID.PrintIfAvailable();
+            data.Properties[vocab.StartDate] = input.StartDate.PrintIfAvailable();
+            data.Properties[vocab.EndDate] = input.EndDate.PrintIfAvailable();
+            data.Properties[vocab.Rowguid] = input.Rowguid.PrintIfAvailable();
+            data.Properties[vocab.ModifiedDate] = input.ModifiedDate.PrintIfAvailable();
+
+            clue.ValidationRuleSuppressions.AddRange(new[]
+                                        {
+                                RuleConstants.METADATA_001_Name_MustBeSet,
+                                RuleConstants.PROPERTIES_001_MustExist,
+                                RuleConstants.METADATA_002_Uri_MustBeSet,
+                                RuleConstants.METADATA_003_Author_Name_MustBeSet,
+                                RuleConstants.METADATA_005_PreviewImage_RawData_MustBeSet
+                            });
+
+            return clue;
+        }
+    }
 }
 
 

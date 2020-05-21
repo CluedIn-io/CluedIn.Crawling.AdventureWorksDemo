@@ -7,8 +7,8 @@ public class SalesShoppingCartItemVocabulary : SimpleVocabulary
 {
 public SalesShoppingCartItemVocabulary()
 {
-VocabularyName = "Sql SalesShoppingCartItem"; // TODO: Set value
-KeyPrefix = "sql.SalesShoppingCartItem"; // TODO: Set value
+VocabularyName = "SalesShoppingCartItem"; // TODO: Set value
+KeyPrefix = "adventureWorks.SalesShoppingCartItem"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "SalesShoppingCartItem"; // TODO: Set value
 

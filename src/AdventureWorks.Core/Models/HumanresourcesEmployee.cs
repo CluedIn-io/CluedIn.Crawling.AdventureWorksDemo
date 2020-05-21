@@ -3,7 +3,6 @@ namespace CluedIn.Crawling.AdventureWorks.Core.Models
     using System;
     using System.ComponentModel;
     using System.Data;
-    using Microsoft.SqlServer.Types;
 
     [DisplayName("HumanResources.Employee")]
     public class HumanResourcesEmployee : BaseSqlEntity
@@ -17,7 +16,7 @@ namespace CluedIn.Crawling.AdventureWorks.Core.Models
             BusinessEntityID = reader["BusinessEntityID"].ToString();
             NationalIDNumber = reader.GetStringValue("NationalIDNumber");
             LoginID = reader.GetStringValue("LoginID");
-            OrganizationNode = (SqlHierarchyId)reader["OrganizationNode"];
+            //OrganizationNode = (SqlHierarchyId)reader["OrganizationNode"];
             OrganizationLevel = reader.GetNullableValue<int?>("OrganizationLevel");
             JobTitle = reader.GetStringValue("JobTitle");
             BirthDate = reader.GetStringValue("BirthDate");
@@ -35,7 +34,7 @@ namespace CluedIn.Crawling.AdventureWorks.Core.Models
         public string BusinessEntityID { get; private set; }
         public string NationalIDNumber { get; private set; }
         public string LoginID { get; private set; }
-        public SqlHierarchyId OrganizationNode { get; private set; }
+        //public SqlHierarchyId OrganizationNode { get; private set; }
         public int? OrganizationLevel { get; private set; }
         public string JobTitle { get; private set; }
         public string BirthDate { get; private set; }

@@ -7,8 +7,8 @@ public class PurchasingShipMethodVocabulary : SimpleVocabulary
 {
 public PurchasingShipMethodVocabulary()
 {
-VocabularyName = "Sql PurchasingShipMethod"; // TODO: Set value
-KeyPrefix = "sql.PurchasingShipMethod"; // TODO: Set value
+VocabularyName = "PurchasingShipMethod"; // TODO: Set value
+KeyPrefix = "adventureWorks.PurchasingShipMethod"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "PurchasingShipMethod"; // TODO: Set value
 

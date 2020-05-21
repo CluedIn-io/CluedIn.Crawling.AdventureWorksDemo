@@ -7,8 +7,8 @@ public class ProductionProductSubcategoryVocabulary : SimpleVocabulary
 {
 public ProductionProductSubcategoryVocabulary()
 {
-VocabularyName = "Sql ProductionProductSubcategory"; // TODO: Set value
-KeyPrefix = "sql.ProductionProductSubcategory"; // TODO: Set value
+VocabularyName = "ProductionProductSubcategory"; // TODO: Set value
+KeyPrefix = "adventureWorks.ProductionProductSubcategory"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "ProductionProductSubcategory"; // TODO: Set value
 

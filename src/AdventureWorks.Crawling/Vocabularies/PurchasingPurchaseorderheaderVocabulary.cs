@@ -7,8 +7,8 @@ public class PurchasingPurchaseOrderHeaderVocabulary : SimpleVocabulary
 {
 public PurchasingPurchaseOrderHeaderVocabulary()
 {
-VocabularyName = "Sql PurchasingPurchaseOrderHeader"; // TODO: Set value
-KeyPrefix = "sql.PurchasingPurchaseOrderHeader"; // TODO: Set value
+VocabularyName = "PurchasingPurchaseOrderHeader"; // TODO: Set value
+KeyPrefix = "adventureWorks.PurchasingPurchaseOrderHeader"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "PurchasingPurchaseOrderHeader"; // TODO: Set value
 

@@ -7,8 +7,8 @@ public class SalesSalesTaxRateVocabulary : SimpleVocabulary
 {
 public SalesSalesTaxRateVocabulary()
 {
-VocabularyName = "Sql SalesSalesTaxRate"; // TODO: Set value
-KeyPrefix = "sql.SalesSalesTaxRate"; // TODO: Set value
+VocabularyName = "SalesSalesTaxRate"; // TODO: Set value
+KeyPrefix = "adventureWorks.SalesSalesTaxRate"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "SalesSalesTaxRate"; // TODO: Set value
 

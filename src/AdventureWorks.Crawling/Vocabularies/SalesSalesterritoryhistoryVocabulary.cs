@@ -7,8 +7,8 @@ public class SalesSalesTerritoryHistoryVocabulary : SimpleVocabulary
 {
 public SalesSalesTerritoryHistoryVocabulary()
 {
-VocabularyName = "Sql SalesSalesTerritoryHistory"; // TODO: Set value
-KeyPrefix = "sql.SalesSalesTerritoryHistory"; // TODO: Set value
+VocabularyName = "SalesSalesTerritoryHistory"; // TODO: Set value
+KeyPrefix = "adventureWorks.SalesSalesTerritoryHistory"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "SalesSalesTerritoryHistory"; // TODO: Set value
 

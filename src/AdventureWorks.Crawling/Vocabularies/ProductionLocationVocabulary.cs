@@ -7,8 +7,8 @@ public class ProductionLocationVocabulary : SimpleVocabulary
 {
 public ProductionLocationVocabulary()
 {
-VocabularyName = "Sql ProductionLocation"; // TODO: Set value
-KeyPrefix = "sql.ProductionLocation"; // TODO: Set value
+VocabularyName = "ProductionLocation"; // TODO: Set value
+KeyPrefix = "adventureWorks.ProductionLocation"; // TODO: Set value
 KeySeparator = ".";
 Grouping = "ProductionLocation"; // TODO: Set value
 
