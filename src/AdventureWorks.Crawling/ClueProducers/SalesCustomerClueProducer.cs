@@ -35,6 +35,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
             data.Codes.Add(new EntityCode("/SalesCustomer", AdventureWorksConstants.CodeOrigin, $"{input.CustomerID}"));
             data.Codes.Add(new EntityCode("/SalesCustomer", AdventureWorksConstants.CodeOrigin, $"{input.AccountNumber}"));
 
+            data.ModifiedDate = input.ModifiedDate.ParseAsDateTimeOffset(); 
             //add edges
 
             if (input.PersonID != null && !string.IsNullOrEmpty(input.PersonID.ToString()))

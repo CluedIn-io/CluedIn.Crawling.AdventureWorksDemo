@@ -35,6 +35,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             data.Name = input.Name;
 
+            data.ModifiedDate = input.ModifiedDate.ParseAsDateTimeOffset(); 
             //add edges
 
             if (!data.OutgoingEdges.Any())

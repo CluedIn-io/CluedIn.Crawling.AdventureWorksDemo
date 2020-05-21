@@ -34,6 +34,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             data.Codes.Add(new EntityCode("/PersonAddressType", AdventureWorksConstants.CodeOrigin, $"{input.AddressTypeID}"));
 
+            data.ModifiedDate = input.ModifiedDate.ParseAsDateTimeOffset(); 
             //add edges
 
 

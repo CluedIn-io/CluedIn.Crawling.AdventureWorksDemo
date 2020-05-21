@@ -33,6 +33,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             data.Codes.Add(new EntityCode(EntityType.Geography.State, AdventureWorksConstants.CodeOrigin, $"{input.StateProvinceID}"));
 
+            data.ModifiedDate = input.ModifiedDate.ParseAsDateTimeOffset(); 
             //add edges
 
             if (input.CountryRegionCode != null && !string.IsNullOrEmpty(input.CountryRegionCode.ToString()))

@@ -34,6 +34,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             data.Codes.Add(new EntityCode("/SalesSpecialOffer", AdventureWorksConstants.CodeOrigin, $"{input.SpecialOfferID}"));
 
+            data.ModifiedDate = input.ModifiedDate.ParseAsDateTimeOffset(); 
             //add edges
 
 

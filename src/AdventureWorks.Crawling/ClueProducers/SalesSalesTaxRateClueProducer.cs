@@ -34,7 +34,8 @@ data.Name = input.Name;
 
 data.Codes.Add(new EntityCode("/SalesSalesTaxRate", AdventureWorksConstants.CodeOrigin, $"{input.SalesTaxRateID}"));
 
-//add edges
+data.ModifiedDate = input.ModifiedDate.ParseAsDateTimeOffset(); 
+            //add edges
 
 if(input.StateProvinceID != null && !string.IsNullOrEmpty(input.StateProvinceID.ToString()))
 {

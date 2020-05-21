@@ -34,6 +34,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
 
 
+            data.ModifiedDate = input.ModifiedDate.ParseAsDateTimeOffset(); 
             //add edges
 
             if (input.EmployeeID != null && !string.IsNullOrEmpty(input.EmployeeID.ToString()))

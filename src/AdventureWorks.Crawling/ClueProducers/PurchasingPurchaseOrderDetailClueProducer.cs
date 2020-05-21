@@ -33,6 +33,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
             data.Name = $"Purchase Order Detail: {input.ProductID} - Quantity {input.OrderQty}";
 
 
+            data.ModifiedDate = input.ModifiedDate.ParseAsDateTimeOffset(); 
             //add edges
 
             if (input.PurchaseOrderID != null && !string.IsNullOrEmpty(input.PurchaseOrderID.ToString()))

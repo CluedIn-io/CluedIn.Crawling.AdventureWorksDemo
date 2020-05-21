@@ -30,7 +30,8 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             data.Name = input.Name;
 
-            //add edges
+            data.ModifiedDate = input.ModifiedDate.ParseAsDateTimeOffset(); 
+			           //add edges
 
 
             if (!data.OutgoingEdges.Any())

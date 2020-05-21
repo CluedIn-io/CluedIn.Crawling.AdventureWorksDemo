@@ -34,7 +34,8 @@ data.Name = input.Name;
 
 data.Codes.Add(new EntityCode("/SalesSalesTerritory", AdventureWorksConstants.CodeOrigin, $"{input.TerritoryID}"));
 
-//add edges
+data.ModifiedDate = input.ModifiedDate.ParseAsDateTimeOffset(); 
+            //add edges
 
 if(input.CountryRegionCode != null && !string.IsNullOrEmpty(input.CountryRegionCode.ToString()))
 {

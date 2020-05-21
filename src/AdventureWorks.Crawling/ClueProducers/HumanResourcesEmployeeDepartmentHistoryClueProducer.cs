@@ -33,6 +33,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
             data.Name = $"Department Shift History: {input.BusinessEntityID} at {input.DepartmentID}: {input.StartDate} - {input.EndDate}";
 
 
+            data.ModifiedDate = input.ModifiedDate.ParseAsDateTimeOffset(); 
             //add edges
 
             if (input.BusinessEntityID != null && !string.IsNullOrEmpty(input.BusinessEntityID.ToString()))

@@ -33,6 +33,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
             data.Name = $"{input.CardNumber}";
 
 
+            data.ModifiedDate = input.ModifiedDate.ParseAsDateTimeOffset(); 
             //add edges
 
 

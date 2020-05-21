@@ -32,6 +32,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             //data.Codes.Add(new EntityCode(EntityType.Documents.Document, AdventureWorksConstants.CodeOrigin, $"{input.DocumentNode}"));
 
+            data.ModifiedDate = input.ModifiedDate.ParseAsDateTimeOffset(); 
             //add edges
 
             if (input.Owner != null && !string.IsNullOrEmpty(input.Owner.ToString()))
