@@ -24,7 +24,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
         protected override Clue MakeClueImpl(PurchasingPurchaseOrderHeader input, Guid id)
         {
 
-            var clue = _factory.Create("/PurchasingPurchaseOrderHeader", $"{input.PurchaseOrderID}", id);
+            var clue = _factory.Create(EntityType.Sales.Order, $"{input.PurchaseOrderID}", id);
 
             var data = clue.Data.EntityData;
 
@@ -38,11 +38,11 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.EmployeeID != null && !string.IsNullOrEmpty(input.EmployeeID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/HumanResourcesEmployee", EntityEdgeType.AttachedTo, input.EmployeeID, input.EmployeeID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Person, EntityEdgeType.AttachedTo, input.EmployeeID, input.EmployeeID.ToString());
             }
             if (input.VendorID != null && !string.IsNullOrEmpty(input.VendorID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/PurchasingVendor", EntityEdgeType.AttachedTo, input.VendorID, input.VendorID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Organization, EntityEdgeType.AttachedTo, input.VendorID, input.VendorID.ToString());
             }
             if (input.ShipMethodID != null && !string.IsNullOrEmpty(input.ShipMethodID.ToString()))
             {

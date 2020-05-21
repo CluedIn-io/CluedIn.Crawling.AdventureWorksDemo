@@ -10,7 +10,7 @@ public PersonPersonPhoneVocabulary()
 VocabularyName = "PersonPersonPhone"; // TODO: Set value
 KeyPrefix = "adventureWorks.PersonPersonPhone"; // TODO: Set value
 KeySeparator = ".";
-Grouping = "PersonPersonPhone"; // TODO: Set value
+Grouping = EntityType.PhoneNumber; // TODO: Set value
 
 AddGroup("PersonPersonPhone Details", group =>
 {

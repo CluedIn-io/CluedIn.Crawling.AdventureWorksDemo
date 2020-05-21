@@ -10,7 +10,7 @@ public SalesCreditCardVocabulary()
 VocabularyName = "SalesCreditCard"; // TODO: Set value
 KeyPrefix = "adventureWorks.SalesCreditCard"; // TODO: Set value
 KeySeparator = ".";
-Grouping = "SalesCreditCard"; // TODO: Set value
+Grouping = EntityType.Payment.Card.CreditCard; // TODO: Set value
 
 AddGroup("SalesCreditCard Details", group =>
 {

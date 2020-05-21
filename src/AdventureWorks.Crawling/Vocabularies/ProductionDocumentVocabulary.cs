@@ -10,7 +10,7 @@ public ProductionDocumentVocabulary()
 VocabularyName = "ProductionDocument"; // TODO: Set value
 KeyPrefix = "adventureWorks.ProductionDocument"; // TODO: Set value
 KeySeparator = ".";
-Grouping = "ProductionDocument"; // TODO: Set value
+Grouping = EntityType.Documents.Document; // TODO: Set value
 
 AddGroup("ProductionDocument Details", group =>
 {

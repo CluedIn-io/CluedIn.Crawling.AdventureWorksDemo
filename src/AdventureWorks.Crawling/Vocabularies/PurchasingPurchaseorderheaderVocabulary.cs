@@ -10,7 +10,7 @@ public PurchasingPurchaseOrderHeaderVocabulary()
 VocabularyName = "PurchasingPurchaseOrderHeader"; // TODO: Set value
 KeyPrefix = "adventureWorks.PurchasingPurchaseOrderHeader"; // TODO: Set value
 KeySeparator = ".";
-Grouping = "PurchasingPurchaseOrderHeader"; // TODO: Set value
+Grouping = EntityType.Sales.Order; // TODO: Set value
 
 AddGroup("PurchasingPurchaseOrderHeader Details", group =>
 {

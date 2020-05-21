@@ -10,7 +10,7 @@ public PersonStateProvinceVocabulary()
 VocabularyName = "PersonStateProvince"; // TODO: Set value
 KeyPrefix = "adventureWorks.PersonStateProvince"; // TODO: Set value
 KeySeparator = ".";
-Grouping = "PersonStateProvince"; // TODO: Set value
+Grouping = EntityType.Geography.State; // TODO: Set value
 
 AddGroup("PersonStateProvince Details", group =>
 {

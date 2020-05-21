@@ -10,7 +10,7 @@ public PurchasingVendorVocabulary()
 VocabularyName = "PurchasingVendor"; // TODO: Set value
 KeyPrefix = "adventureWorks.PurchasingVendor"; // TODO: Set value
 KeySeparator = ".";
-Grouping = "PurchasingVendor"; // TODO: Set value
+Grouping = EntityType.Organization; // TODO: Set value
 
 AddGroup("PurchasingVendor Details", group =>
 {

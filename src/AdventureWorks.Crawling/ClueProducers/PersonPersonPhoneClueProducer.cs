@@ -24,7 +24,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
         protected override Clue MakeClueImpl(PersonPersonPhone input, Guid id)
         {
 
-            var clue = _factory.Create("/PersonPersonPhone", $"{input.BusinessEntityID}.{input.PhoneNumber}.{input.PhoneNumberTypeID}", id);
+            var clue = _factory.Create(EntityType.PhoneNumber, $"{input.BusinessEntityID}.{input.PhoneNumber}.{input.PhoneNumberTypeID}", id);
 
             var data = clue.Data.EntityData;
 
@@ -38,7 +38,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.BusinessEntityID != null && !string.IsNullOrEmpty(input.BusinessEntityID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/PersonPerson", EntityEdgeType.AttachedTo, input.BusinessEntityID, input.BusinessEntityID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Person, EntityEdgeType.OwnedBy, input.BusinessEntityID, input.BusinessEntityID.ToString());
             }
             if (input.PhoneNumberTypeID != null && !string.IsNullOrEmpty(input.PhoneNumberTypeID.ToString()))
             {

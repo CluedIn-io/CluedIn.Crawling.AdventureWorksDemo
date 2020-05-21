@@ -24,7 +24,7 @@ public PurchasingVendorClueProducer(IClueFactory factory)
 protected override Clue MakeClueImpl(PurchasingVendor input, Guid id)
 {
 
-var clue = _factory.Create("/PurchasingVendor", $"{input.BusinessEntityID}", id);
+var clue = _factory.Create(EntityType.Organization, $"{input.BusinessEntityID}", id);
 
 							var data = clue.Data.EntityData;
 

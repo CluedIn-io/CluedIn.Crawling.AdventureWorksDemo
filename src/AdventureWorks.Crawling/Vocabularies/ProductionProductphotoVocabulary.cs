@@ -10,7 +10,7 @@ public ProductionProductPhotoVocabulary()
 VocabularyName = "ProductionProductPhoto"; // TODO: Set value
 KeyPrefix = "adventureWorks.ProductionProductPhoto"; // TODO: Set value
 KeySeparator = ".";
-Grouping = "ProductionProductPhoto"; // TODO: Set value
+Grouping = EntityType.Images.Image; // TODO: Set value
 
 AddGroup("ProductionProductPhoto Details", group =>
 {

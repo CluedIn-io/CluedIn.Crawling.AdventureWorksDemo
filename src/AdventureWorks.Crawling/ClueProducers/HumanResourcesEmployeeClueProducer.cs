@@ -24,11 +24,9 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
         protected override Clue MakeClueImpl(HumanResourcesEmployee input, Guid id)
         {
 
-            var clue = _factory.Create(EntityType.Person, $"{input.Rowguid}", id);
+            var clue = _factory.Create("/HumanResourcesEmployee", $"{input.Rowguid}", id);
 
             var data = clue.Data.EntityData;
-
-
 
             data.Name = $"Employee {input.BusinessEntityID}";
 
@@ -40,7 +38,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.BusinessEntityID != null && !string.IsNullOrEmpty(input.BusinessEntityID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/PersonPerson", EntityEdgeType.AttachedTo, input.BusinessEntityID, input.BusinessEntityID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Person, "Is", input.BusinessEntityID, input.BusinessEntityID.ToString());
             }
 
             if (!data.OutgoingEdges.Any())

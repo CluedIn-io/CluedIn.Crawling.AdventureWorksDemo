@@ -10,7 +10,7 @@ public PersonEmailAddressVocabulary()
 VocabularyName = "PersonEmailAddress"; // TODO: Set value
 KeyPrefix = "adventureWorks.PersonEmailAddress"; // TODO: Set value
 KeySeparator = ".";
-Grouping = "PersonEmailAddress"; // TODO: Set value
+Grouping = EntityType.Mail; // TODO: Set value
 
 AddGroup("PersonEmailAddress Details", group =>
 {

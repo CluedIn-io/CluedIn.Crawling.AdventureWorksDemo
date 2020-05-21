@@ -39,7 +39,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.PersonID != null && !string.IsNullOrEmpty(input.PersonID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/PersonPerson", EntityEdgeType.AttachedTo, input.PersonID, input.PersonID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Person, EntityEdgeType.AttachedTo, input.PersonID, input.PersonID.ToString());
             }
             if (input.StoreID != null && !string.IsNullOrEmpty(input.StoreID.ToString()))
             {

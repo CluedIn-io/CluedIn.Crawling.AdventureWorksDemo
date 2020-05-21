@@ -24,15 +24,13 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
         protected override Clue MakeClueImpl(PersonPerson input, Guid id)
         {
 
-            var clue = _factory.Create("/PersonPerson", $"{input.Rowguid}", id);
+            var clue = _factory.Create(EntityType.Person, $"{input.Rowguid}", id);
 
             var data = clue.Data.EntityData;
 
-
-
             data.Name = $"{input.FirstName} {input.MiddleName} {input.LastName}";
 
-            data.Codes.Add(new EntityCode("/PersonPerson", AdventureWorksConstants.CodeOrigin, $"{input.BusinessEntityID}"));
+            data.Codes.Add(new EntityCode(EntityType.Person, AdventureWorksConstants.CodeOrigin, $"{input.BusinessEntityID}"));
 
             //add edges
 

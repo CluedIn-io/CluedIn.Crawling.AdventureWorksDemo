@@ -12,63 +12,63 @@ using System;
 
 namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 {
-public class ProductionProductModelIllustrationClueProducer : BaseClueProducer<ProductionProductModelIllustration>
-{
-private readonly IClueFactory _factory;
+    public class ProductionProductModelIllustrationClueProducer : BaseClueProducer<ProductionProductModelIllustration>
+    {
+        private readonly IClueFactory _factory;
 
-public ProductionProductModelIllustrationClueProducer(IClueFactory factory)
-							{
-								_factory = factory;
-							}
+        public ProductionProductModelIllustrationClueProducer(IClueFactory factory)
+        {
+            _factory = factory;
+        }
 
-protected override Clue MakeClueImpl(ProductionProductModelIllustration input, Guid id)
-{
+        protected override Clue MakeClueImpl(ProductionProductModelIllustration input, Guid id)
+        {
 
-var clue = _factory.Create("/ProductionProductModelIllustration", $"{input.ProductModelID}.{input.IllustrationID}", id);
+            var clue = _factory.Create("/ProductionProductModelIllustration", $"{input.ProductModelID}.{input.IllustrationID}", id);
 
-							var data = clue.Data.EntityData;
-
-							
-
-data.Name = $"Product Model Illustration {input.ProductModelID}";
+            var data = clue.Data.EntityData;
 
 
 
-//add edges
+            data.Name = $"Product Model Illustration {input.ProductModelID}";
 
-if(input.ProductModelID != null && !string.IsNullOrEmpty(input.ProductModelID.ToString()))
-{
-_factory.CreateOutgoingEntityReference(clue, "/ProductionProductModel", EntityEdgeType.AttachedTo, input.ProductModelID, input.ProductModelID.ToString());
-}
-if(input.IllustrationID != null && !string.IsNullOrEmpty(input.IllustrationID.ToString()))
-{
-_factory.CreateOutgoingEntityReference(clue, "/ProductionIllustration", EntityEdgeType.AttachedTo, input.IllustrationID, input.IllustrationID.ToString());
-}
 
-if (!data.OutgoingEdges.Any())
-                          {
-			                _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
-                          }
-							
 
-var vocab = new ProductionProductModelIllustrationVocabulary();
+            //add edges
 
-data.Properties[vocab.ProductModelID]            = input.ProductModelID.PrintIfAvailable();
-data.Properties[vocab.IllustrationID]            = input.IllustrationID.PrintIfAvailable();
-data.Properties[vocab.ModifiedDate]              = input.ModifiedDate.PrintIfAvailable();
+            if (input.ProductModelID != null && !string.IsNullOrEmpty(input.ProductModelID.ToString()))
+            {
+                _factory.CreateOutgoingEntityReference(clue, "/ProductionProductModel", EntityEdgeType.AttachedTo, input.ProductModelID, input.ProductModelID.ToString());
+            }
+            if (input.IllustrationID != null && !string.IsNullOrEmpty(input.IllustrationID.ToString()))
+            {
+                _factory.CreateOutgoingEntityReference(clue, "/ProductionIllustration", EntityEdgeType.AttachedTo, input.IllustrationID, input.IllustrationID.ToString());
+            }
 
-clue.ValidationRuleSuppressions.AddRange(new[]
-							{
-								RuleConstants.METADATA_001_Name_MustBeSet,
-								RuleConstants.PROPERTIES_001_MustExist,
-								RuleConstants.METADATA_002_Uri_MustBeSet,
-								RuleConstants.METADATA_003_Author_Name_MustBeSet,
-								RuleConstants.METADATA_005_PreviewImage_RawData_MustBeSet
-							});
+            if (!data.OutgoingEdges.Any())
+            {
+                _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
+            }
 
-return clue;
-}
-}
+
+            var vocab = new ProductionProductModelIllustrationVocabulary();
+
+            data.Properties[vocab.ProductModelID] = input.ProductModelID.PrintIfAvailable();
+            data.Properties[vocab.IllustrationID] = input.IllustrationID.PrintIfAvailable();
+            data.Properties[vocab.ModifiedDate] = input.ModifiedDate.PrintIfAvailable();
+
+            clue.ValidationRuleSuppressions.AddRange(new[]
+                                        {
+                                RuleConstants.METADATA_001_Name_MustBeSet,
+                                RuleConstants.PROPERTIES_001_MustExist,
+                                RuleConstants.METADATA_002_Uri_MustBeSet,
+                                RuleConstants.METADATA_003_Author_Name_MustBeSet,
+                                RuleConstants.METADATA_005_PreviewImage_RawData_MustBeSet
+                            });
+
+            return clue;
+        }
+    }
 }
 
 

@@ -24,7 +24,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
         protected override Clue MakeClueImpl(SalesCreditCard input, Guid id)
         {
 
-            var clue = _factory.Create("/SalesCreditCard", $"{input.CreditCardID}", id);
+            var clue = _factory.Create(EntityType.Payment.Card.CreditCard, $"{input.CreditCardID}", id);
 
             var data = clue.Data.EntityData;
 

@@ -28,11 +28,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             var data = clue.Data.EntityData;
 
-
-
             data.Name = input.Name;
-
-
 
             //add edges
 
@@ -41,7 +37,6 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
             {
                 _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
             }
-
 
             var vocab = new HumanResourcesDepartmentVocabulary();
 

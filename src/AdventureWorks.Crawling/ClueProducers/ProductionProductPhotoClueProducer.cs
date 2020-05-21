@@ -24,7 +24,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
         protected override Clue MakeClueImpl(ProductionProductPhoto input, Guid id)
         {
 
-            var clue = _factory.Create("/ProductionProductPhoto", $"{input.ProductPhotoID}", id);
+            var clue = _factory.Create(EntityType.Images.Image, $"{input.ProductPhotoID}", id);
 
             var data = clue.Data.EntityData;
 

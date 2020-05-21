@@ -38,7 +38,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             if (input.SalesOrderID != null && !string.IsNullOrEmpty(input.SalesOrderID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/SalesSalesOrderHeader", EntityEdgeType.AttachedTo, input.SalesOrderID, input.SalesOrderID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Sales.Sale, EntityEdgeType.AttachedTo, input.SalesOrderID, input.SalesOrderID.ToString());
             }
             if (input.SalesReasonID != null && !string.IsNullOrEmpty(input.SalesReasonID.ToString()))
             {

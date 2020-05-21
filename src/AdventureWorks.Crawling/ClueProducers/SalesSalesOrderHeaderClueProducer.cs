@@ -24,7 +24,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
         protected override Clue MakeClueImpl(SalesSalesOrderHeader input, Guid id)
         {
 
-            var clue = _factory.Create("/SalesSalesOrderHeader", $"{input.Rowguid}", id);
+            var clue = _factory.Create(EntityType.Sales.Sale, $"{input.Rowguid}", id);
 
             var data = clue.Data.EntityData;
 
@@ -32,8 +32,8 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 
             data.Name = $"Order {input.SalesOrderNumber}";
 
-            data.Codes.Add(new EntityCode("/SalesSalesOrderHeader", AdventureWorksConstants.CodeOrigin, $"{input.SalesOrderID}"));
-            data.Codes.Add(new EntityCode("/SalesSalesOrderHeader", AdventureWorksConstants.CodeOrigin, $"{input.SalesOrderNumber}"));
+            data.Codes.Add(new EntityCode(EntityType.Sales.Sale, AdventureWorksConstants.CodeOrigin, $"{input.SalesOrderID}"));
+            data.Codes.Add(new EntityCode(EntityType.Sales.Sale, AdventureWorksConstants.CodeOrigin, $"{input.SalesOrderNumber}"));
 
             //add edges
 
@@ -63,7 +63,7 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
             }
             if (input.CreditCardID != null && !string.IsNullOrEmpty(input.CreditCardID.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/SalesCreditCard", EntityEdgeType.AttachedTo, input.CreditCardID, input.CreditCardID.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Payment.Card.CreditCard, EntityEdgeType.AttachedTo, input.CreditCardID, input.CreditCardID.ToString());
             }
             if (input.CurrencyRateID != null && !string.IsNullOrEmpty(input.CurrencyRateID.ToString()))
             {

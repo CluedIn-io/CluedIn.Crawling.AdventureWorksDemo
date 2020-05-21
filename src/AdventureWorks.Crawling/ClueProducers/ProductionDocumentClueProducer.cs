@@ -24,19 +24,19 @@ namespace CluedIn.Crawling.AdventureWorks.ClueProducers
         protected override Clue MakeClueImpl(ProductionDocument input, Guid id)
         {
 
-            var clue = _factory.Create("/ProductionDocument", $"{input.Rowguid}", id);
+            var clue = _factory.Create(EntityType.Documents.Document, $"{input.Rowguid}", id);
 
             var data = clue.Data.EntityData;
 
             data.Name = $"{input.Title}";
 
-            //data.Codes.Add(new EntityCode("/ProductionDocument", AdventureWorksConstants.CodeOrigin, $"{input.DocumentNode}"));
+            //data.Codes.Add(new EntityCode(EntityType.Documents.Document, AdventureWorksConstants.CodeOrigin, $"{input.DocumentNode}"));
 
             //add edges
 
             if (input.Owner != null && !string.IsNullOrEmpty(input.Owner.ToString()))
             {
-                _factory.CreateOutgoingEntityReference(clue, "/HumanResourcesEmployee", EntityEdgeType.AttachedTo, input.Owner, input.Owner.ToString());
+                _factory.CreateOutgoingEntityReference(clue, EntityType.Person, EntityEdgeType.AttachedTo, input.Owner, input.Owner.ToString());
             }
 
             if (!data.OutgoingEdges.Any())

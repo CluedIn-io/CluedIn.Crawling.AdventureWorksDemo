@@ -38,7 +38,7 @@ data.Codes.Add(new EntityCode("/SalesSalesTaxRate", AdventureWorksConstants.Code
 
 if(input.StateProvinceID != null && !string.IsNullOrEmpty(input.StateProvinceID.ToString()))
 {
-_factory.CreateOutgoingEntityReference(clue, "/PersonStateProvince", EntityEdgeType.AttachedTo, input.StateProvinceID, input.StateProvinceID.ToString());
+_factory.CreateOutgoingEntityReference(clue, EntityType.Geography.State, EntityEdgeType.AttachedTo, input.StateProvinceID, input.StateProvinceID.ToString());
 }
 
 if (!data.OutgoingEdges.Any())

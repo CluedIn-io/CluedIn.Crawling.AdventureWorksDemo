@@ -12,55 +12,55 @@ using System;
 
 namespace CluedIn.Crawling.AdventureWorks.ClueProducers
 {
-public class ProductionUnitMeasureClueProducer : BaseClueProducer<ProductionUnitMeasure>
-{
-private readonly IClueFactory _factory;
+    public class ProductionUnitMeasureClueProducer : BaseClueProducer<ProductionUnitMeasure>
+    {
+        private readonly IClueFactory _factory;
 
-public ProductionUnitMeasureClueProducer(IClueFactory factory)
-							{
-								_factory = factory;
-							}
+        public ProductionUnitMeasureClueProducer(IClueFactory factory)
+        {
+            _factory = factory;
+        }
 
-protected override Clue MakeClueImpl(ProductionUnitMeasure input, Guid id)
-{
+        protected override Clue MakeClueImpl(ProductionUnitMeasure input, Guid id)
+        {
 
-var clue = _factory.Create("/ProductionUnitMeasure", $"{input.UnitMeasureCode}", id);
+            var clue = _factory.Create("/ProductionUnitMeasure", $"{input.UnitMeasureCode}", id);
 
-							var data = clue.Data.EntityData;
-
-							
-
-data.Name = input.Name;
+            var data = clue.Data.EntityData;
 
 
 
-//add edges
+            data.Name = input.Name;
 
 
-if (!data.OutgoingEdges.Any())
-                          {
-			                _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
-                          }
-							
 
-var vocab = new ProductionUnitMeasureVocabulary();
+            //add edges
 
-data.Properties[vocab.UnitMeasureCode]           = input.UnitMeasureCode.PrintIfAvailable();
-data.Properties[vocab.Name]                      = input.Name.PrintIfAvailable();
-data.Properties[vocab.ModifiedDate]              = input.ModifiedDate.PrintIfAvailable();
 
-clue.ValidationRuleSuppressions.AddRange(new[]
-							{
-								RuleConstants.METADATA_001_Name_MustBeSet,
-								RuleConstants.PROPERTIES_001_MustExist,
-								RuleConstants.METADATA_002_Uri_MustBeSet,
-								RuleConstants.METADATA_003_Author_Name_MustBeSet,
-								RuleConstants.METADATA_005_PreviewImage_RawData_MustBeSet
-							});
+            if (!data.OutgoingEdges.Any())
+            {
+                _factory.CreateEntityRootReference(clue, EntityEdgeType.PartOf);
+            }
 
-return clue;
-}
-}
+
+            var vocab = new ProductionUnitMeasureVocabulary();
+
+            data.Properties[vocab.UnitMeasureCode] = input.UnitMeasureCode.PrintIfAvailable();
+            data.Properties[vocab.Name] = input.Name.PrintIfAvailable();
+            data.Properties[vocab.ModifiedDate] = input.ModifiedDate.PrintIfAvailable();
+
+            clue.ValidationRuleSuppressions.AddRange(new[]
+                                        {
+                                RuleConstants.METADATA_001_Name_MustBeSet,
+                                RuleConstants.PROPERTIES_001_MustExist,
+                                RuleConstants.METADATA_002_Uri_MustBeSet,
+                                RuleConstants.METADATA_003_Author_Name_MustBeSet,
+                                RuleConstants.METADATA_005_PreviewImage_RawData_MustBeSet
+                            });
+
+            return clue;
+        }
+    }
 }
 
 

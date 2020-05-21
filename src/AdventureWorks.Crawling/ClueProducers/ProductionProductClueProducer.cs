@@ -24,7 +24,7 @@ public ProductionProductClueProducer(IClueFactory factory)
 protected override Clue MakeClueImpl(ProductionProduct input, Guid id)
 {
 
-var clue = _factory.Create("/ProductionProduct", $"{input.Rowguid}", id);
+var clue = _factory.Create(EntityType.Product, $"{input.Rowguid}", id);
 
 							var data = clue.Data.EntityData;
 
@@ -32,7 +32,7 @@ var clue = _factory.Create("/ProductionProduct", $"{input.Rowguid}", id);
 
 data.Name = input.Name;
 
-data.Codes.Add(new EntityCode("/ProductionProduct", AdventureWorksConstants.CodeOrigin, $"{input.ProductID}"));
+data.Codes.Add(new EntityCode(EntityType.Product, AdventureWorksConstants.CodeOrigin, $"{input.ProductID}"));
 
 //add edges
 

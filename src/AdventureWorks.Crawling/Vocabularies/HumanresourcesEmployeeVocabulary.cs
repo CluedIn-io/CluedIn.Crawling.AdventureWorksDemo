@@ -10,7 +10,7 @@ namespace CluedIn.Crawling.AdventureWorks.Vocabularies
             VocabularyName = "HumanResourcesEmployee"; // TODO: Set value
             KeyPrefix = "adventureWorks.HumanResourcesEmployee"; // TODO: Set value
             KeySeparator = ".";
-            Grouping = EntityType.Person; // TODO: Set value
+            Grouping = "HumanResourcesEmployee"; // TODO: Set value
 
             AddGroup("HumanResourcesEmployee Details", group =>
             {

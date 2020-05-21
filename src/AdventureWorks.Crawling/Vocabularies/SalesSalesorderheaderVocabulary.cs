@@ -10,7 +10,7 @@ public SalesSalesOrderHeaderVocabulary()
 VocabularyName = "SalesSalesOrderHeader"; // TODO: Set value
 KeyPrefix = "adventureWorks.SalesSalesOrderHeader"; // TODO: Set value
 KeySeparator = ".";
-Grouping = "SalesSalesOrderHeader"; // TODO: Set value
+Grouping = EntityType.Sales.Sale; // TODO: Set value
 
 AddGroup("SalesSalesOrderHeader Details", group =>
 {

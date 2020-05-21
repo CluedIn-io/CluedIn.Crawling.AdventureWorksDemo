@@ -10,7 +10,7 @@ public HumanResourcesShiftVocabulary()
 VocabularyName = "HumanResourcesShift"; // TODO: Set value
 KeyPrefix = "adventureWorks.HumanResourcesShift"; // TODO: Set value
 KeySeparator = ".";
-Grouping = "HumanResourcesShift"; // TODO: Set value
+Grouping = EntityType.HR.WorkSchedule; // TODO: Set value
 
 AddGroup("HumanResourcesShift Details", group =>
 {
