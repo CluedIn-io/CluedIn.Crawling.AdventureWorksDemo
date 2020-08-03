@@ -14,6 +14,8 @@ using CluedIn.Core.Providers;
 using CluedIn.Core.Webhooks;
 using CluedIn.Crawling;
 using CluedIn.Crawling.AdventureWorks.Core;
+using CrawlerIntegrationTesting.CrawlerHost;
+using Microsoft.Extensions.Logging;
 
 namespace CluedIn.Provider.AdventureWorks.WebHooks
 {
@@ -34,7 +36,7 @@ namespace CluedIn.Provider.AdventureWorks.WebHooks
             try
             {
                 if (ConfigurationManager.AppSettings.GetFlag("Feature.Webhooks.Log.Posts", false))
-                    context.Log.Debug(() => command.HttpPostData);
+                    context.Log.LogDebug(command.HttpPostData);
 
                 var configurationDataStore = context.ApplicationContext.Container.Resolve<IConfigurationRepository>();
                 if (command.WebhookDefinition.ProviderDefinitionId != null)
@@ -72,7 +74,10 @@ namespace CluedIn.Provider.AdventureWorks.WebHooks
             }
             catch (Exception exception)
             {
-                context.Log.Error(new { command.HttpHeaders, command.HttpQueryString, command.HttpPostData, command.WebhookDefinitionId }, () => "Could not process web hook message", exception);
+                using (context.Log.BeginScope(new { command.HttpHeaders, command.HttpQueryString, command.HttpPostData, command.WebhookDefinitionId }))
+                {
+                    context.Log.LogError(exception, "Could not process web hook message");
+                }
             }
 
             return new List<Clue>();

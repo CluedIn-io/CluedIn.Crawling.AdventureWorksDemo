@@ -69,7 +69,7 @@ namespace CluedIn.Crawling.AdventureWorks.Core
                                        { "Tracking",        "Expenses and Invoices against customers" },
                                        { "Intelligence",    "Aggregate types of invoices and expenses against customers and companies." }
                                    },
-            Icon = ProviderIconFactory.CreateUri(ProviderId),
+            Icon = ProviderIconFactory.CreateConnectorUri(ProviderId),
             ProviderName = ProviderName,
             ProviderId = ProviderId,
             Webhooks = SupportsWebHooks

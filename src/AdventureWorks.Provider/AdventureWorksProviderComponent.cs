@@ -4,17 +4,17 @@ using CluedIn.Core;
 using CluedIn.Core.Providers;
 // 
 using CluedIn.Core.Webhooks;
-// 
+//
+using CluedIn.Core.Server;
 using CluedIn.Crawling.AdventureWorks.Core;
 using CluedIn.Crawling.AdventureWorks.Infrastructure.Installers;
 // 
-using CluedIn.Server;
 using ComponentHost;
 
 namespace CluedIn.Provider.AdventureWorks
 {
     [Component(AdventureWorksConstants.ProviderName, "Providers", ComponentType.Service, ServerComponents.ProviderWebApi, Components.Server, Components.DataStores, Isolation = ComponentIsolation.NotIsolated)]
-    public sealed class AdventureWorksProviderComponent : ServiceApplicationComponent<EmbeddedServer>
+    public sealed class AdventureWorksProviderComponent : ServiceApplicationComponent<IBusServer>
     {
         public AdventureWorksProviderComponent(ComponentInfo componentInfo)
             : base(componentInfo)
@@ -28,13 +28,12 @@ namespace CluedIn.Provider.AdventureWorks
         {
             Container.Install(new InstallComponents());
 
-            Container.Register(Types.FromThisAssembly().BasedOn<IProvider>().WithServiceFromInterface().If(t => !t.IsAbstract).LifestyleSingleton());
-            Container.Register(Types.FromThisAssembly().BasedOn<IEntityActionBuilder>().WithServiceFromInterface().If(t => !t.IsAbstract).LifestyleSingleton());
+            var asm = System.Reflection.Assembly.GetExecutingAssembly();
+            Container.Register(Types.FromAssembly(asm).BasedOn<IProvider>().WithServiceFromInterface().If(t => !t.IsAbstract).LifestyleSingleton());
+            Container.Register(Types.FromAssembly(asm).BasedOn<IEntityActionBuilder>().WithServiceFromInterface().If(t => !t.IsAbstract).LifestyleSingleton());
 
-            Container.Register(Types.FromThisAssembly().BasedOn<IWebhookProcessor>().WithServiceFromInterface().If(t => !t.IsAbstract).LifestyleSingleton());
-            Container.Register(Types.FromThisAssembly().BasedOn<IWebhookPrevalidator>().WithServiceFromInterface().If(t => !t.IsAbstract).LifestyleSingleton());
-
-
+            Container.Register(Types.FromAssembly(asm).BasedOn<IWebhookProcessor>().WithServiceFromInterface().If(t => !t.IsAbstract).LifestyleSingleton());
+            Container.Register(Types.FromAssembly(asm).BasedOn<IWebhookPrevalidator>().WithServiceFromInterface().If(t => !t.IsAbstract).LifestyleSingleton());
 
             State = ServiceState.Started;
         }

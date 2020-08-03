@@ -1,8 +1,11 @@
 using System.IO;
 using System.Reflection;
+using Castle.MicroKernel.Registration;
 using CluedIn.Crawling.AdventureWorks.Core;
 using CrawlerIntegrationTesting.Clues;
-using CrawlerIntegrationTesting.Log;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
+
 using Xunit.Abstractions;
 using DebugCrawlerHost = CrawlerIntegrationTesting.CrawlerHost.DebugCrawlerHost<CluedIn.Crawling.AdventureWorks.Core.AdventureWorksCrawlJobData>;
 
@@ -13,15 +16,17 @@ namespace CluedIn.Crawling.AdventureWorks.Integration.Test
         public ClueStorage ClueStorage { get; }
         private readonly DebugCrawlerHost debugCrawlerHost;
 
-        public TestLogger Log { get; }
+        public ILogger<AdventureWorksTestFixture> Log { get; }
         public AdventureWorksTestFixture()
         {
             var executingFolder = new FileInfo(Assembly.GetExecutingAssembly().CodeBase.Substring(8)).DirectoryName;
-            debugCrawlerHost = new DebugCrawlerHost(executingFolder, AdventureWorksConstants.ProviderName);
-
+            debugCrawlerHost = new DebugCrawlerHost(executingFolder, AdventureWorksConstants.ProviderName, c => {
+                c.Register(Component.For<ILogger>().UsingFactoryMethod(_ => NullLogger.Instance).LifestyleSingleton());
+                c.Register(Component.For<ILoggerFactory>().UsingFactoryMethod(_ => NullLoggerFactory.Instance).LifestyleSingleton());
+            });
             ClueStorage = new ClueStorage();
 
-            Log = debugCrawlerHost.AppContext.Container.Resolve<TestLogger>();
+            Log = debugCrawlerHost.AppContext.Container.Resolve<ILogger<AdventureWorksTestFixture>>();
 
             debugCrawlerHost.ProcessClue += ClueStorage.AddClue;
 
@@ -38,7 +43,8 @@ namespace CluedIn.Crawling.AdventureWorks.Integration.Test
 
         public void PrintLogs(ITestOutputHelper output)
         {
-            output.WriteLine(Log.PrintLogs());
+            //TODO:
+            //output.WriteLine(Log.PrintLogs());
         }
 
         public void Dispose()

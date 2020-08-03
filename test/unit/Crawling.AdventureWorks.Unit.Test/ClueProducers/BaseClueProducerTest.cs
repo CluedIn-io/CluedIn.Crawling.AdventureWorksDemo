@@ -1,11 +1,11 @@
 using System;
 using AutoFixture.Xunit2;
 using CluedIn.Core.Data;
-using CluedIn.Core.Logging;
+using Microsoft.Extensions.Logging;
 using CluedIn.Crawling;
 using CluedIn.Crawling.Factories;
 using Moq;
-using Should;
+using Shouldly;
 using Xunit;
 
 namespace Crawling.AdventureWorks.Unit.Test.ClueProducers

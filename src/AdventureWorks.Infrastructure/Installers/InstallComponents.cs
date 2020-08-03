@@ -15,8 +15,8 @@ namespace CluedIn.Crawling.AdventureWorks.Infrastructure.Installers
         {
             container
                 .AddFacilityIfNotExists<TypedFactoryFacility>()
-                .Register(Component.For<IAdventureWorksClientFactory>().AsFactory())
-                .Register(Component.For<AdventureWorksClient>().LifestyleTransient());
+                .Register(Component.For<IAdventureWorksClientFactory>().AsFactory().OnlyNewServices())
+                .Register(Component.For<AdventureWorksClient>().LifestyleTransient().OnlyNewServices());
 
             if (!container.Kernel.HasComponent(typeof(IRestClient)) && !container.Kernel.HasComponent(typeof(RestClient)))
                 container.Register(Component.For<IRestClient, RestClient>());

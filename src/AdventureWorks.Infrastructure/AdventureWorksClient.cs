@@ -6,7 +6,7 @@ using System.Net;
 using System.Reflection;
 using System.Threading.Tasks;
 using CluedIn.Core;
-using CluedIn.Core.Logging;
+using Microsoft.Extensions.Logging;
 using CluedIn.Core.Providers;
 using CluedIn.Crawling.AdventureWorks.Core;
 using CluedIn.Crawling.AdventureWorks.Core.Models;
@@ -24,11 +24,11 @@ namespace CluedIn.Crawling.AdventureWorks.Infrastructure
     {
         private const string BaseUri = "http://sample.com";
 
-        private readonly ILogger _log;
+        private readonly ILogger<AdventureWorksClient> _log;
         private readonly AdventureWorksCrawlJobData _jobData;
         private readonly int _retryIntervalMs = 10000;
 
-        public AdventureWorksClient(ILogger log, AdventureWorksCrawlJobData adventureworksCrawlJobData) // TODO: pass on any extra dependencies
+        public AdventureWorksClient(ILogger<AdventureWorksClient> log, AdventureWorksCrawlJobData adventureworksCrawlJobData) // TODO: pass on any extra dependencies
         {
             if (adventureworksCrawlJobData == null)
             {
@@ -67,7 +67,7 @@ namespace CluedIn.Crawling.AdventureWorks.Infrastructure
                     }
                     catch (Exception exception)
                     {
-                        _log.Error(() => exception.Message, exception);
+                        _log.LogError(exception.Message, exception);
                         yield break;
                     }
 
@@ -82,7 +82,7 @@ namespace CluedIn.Crawling.AdventureWorks.Infrastructure
                         }
                         catch (Exception exception)
                         {
-                            _log.Error(() => exception.Message, exception);
+                            _log.LogError(exception.Message, exception);
                             continue;
                         }
 
