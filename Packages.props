@@ -22,6 +22,8 @@
     <PackageReference Update="Moq" Version="4.13.1" />
     <PackageReference Update="Shouldly" Version="3.0.2" />
     <PackageReference Update="System.Data.SqlClient" Version="4.6.0" />
+    <PackageReference Update="CluedIn.CrawlerIntegrationTesting" Version="3.0.0-netcore.14" />
+
   </ItemGroup>
 
   <ItemGroup>

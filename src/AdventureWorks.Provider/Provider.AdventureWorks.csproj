@@ -11,7 +11,7 @@
   <ItemGroup>
     <PackageReference Include="CluedIn.Core" />
     <PackageReference Include="CluedIn.Core.Agent" />
-    <PackageReference Include="CluedIn.CrawlerIntegrationTesting" />
+    <!--<PackageReference Include="CluedIn.CrawlerIntegrationTesting" />-->
     <PackageReference Include="CluedIn.Server.Common.WebApi" />
   </ItemGroup>
 </Project>
