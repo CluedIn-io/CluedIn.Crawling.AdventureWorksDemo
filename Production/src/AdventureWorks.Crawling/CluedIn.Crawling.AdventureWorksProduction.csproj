@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>CluedIn.Crawling.AdventureWorksProduction</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AdventureWorksProductionCrawlerComponent.config">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdventureWorks.Provider\CluedIn.Provider.AdventureWorksProduction.csproj" />
+  </ItemGroup>
+</Project>

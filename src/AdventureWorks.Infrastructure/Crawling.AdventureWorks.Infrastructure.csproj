@@ -1,8 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <ItemGroup>
-    <PackageReference Include="System.Data.SqlClient"/>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AdventureWorks.Core\Crawling.AdventureWorks.Core.csproj" />
-  </ItemGroup>
-</Project>

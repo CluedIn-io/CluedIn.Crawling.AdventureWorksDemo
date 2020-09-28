@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>CluedIn.Provider.AdventureWorksSales</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\cluedin.png" />
+    <EmbeddedResource Include="AdventureWorksSalesProviderComponent.config">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CluedIn.Core" />
+    <PackageReference Include="CluedIn.Core.Agent" />
+    <PackageReference Include="CluedIn.Server.Common.WebApi" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdventureWorks.Infrastructure\CluedIn.Crawling.AdventureWorksSales.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

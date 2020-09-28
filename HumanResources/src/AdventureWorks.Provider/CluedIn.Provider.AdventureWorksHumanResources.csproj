@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>CluedIn.Provider.AdventureWorksHumanResources</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\cluedin.png" />
+    <EmbeddedResource Include="AdventureWorksHumanResourcesProviderComponent.config">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CluedIn.Core" />
+    <PackageReference Include="CluedIn.Core.Agent" />
+    <PackageReference Include="CluedIn.Server.Common.WebApi" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdventureWorks.Infrastructure\CluedIn.Crawling.AdventureWorksHumanResources.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

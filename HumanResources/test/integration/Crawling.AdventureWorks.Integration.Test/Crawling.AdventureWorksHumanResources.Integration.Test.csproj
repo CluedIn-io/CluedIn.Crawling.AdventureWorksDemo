@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="CluedIn.CrawlerIntegrationTesting" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\AdventureWorks.Core\CluedIn.Crawling.AdventureWorksHumanResources.Core.csproj" />
+    <ProjectReference Include="..\..\..\src\AdventureWorks.Crawling\CluedIn.Crawling.AdventureWorksHumanResources.csproj" />
+    <ProjectReference Include="..\..\..\src\AdventureWorks.Infrastructure\CluedIn.Crawling.AdventureWorksHumanResources.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\src\AdventureWorks.Provider\CluedIn.Provider.AdventureWorksHumanResources.csproj" />
+  </ItemGroup>
+
+  <!--
+    App.config needs to be copied under dll of _host_ process
+    i.e. the test runner itself
+    https://github.com/dotnet/runtime/issues/22720#issuecomment-563785907
+  -->
+  <!-- <Target Name="CopyCustomContent" AfterTargets="AfterBuild">
+    <Copy SourceFiles="app.config" DestinationFiles="$(OutDir)\testhost.dll.config" />
+  </Target> -->
+  
+</Project>

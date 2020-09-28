@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>CluedIn.Crawling.AdventureWorksSales.Infrastructure</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdventureWorks.Core\CluedIn.Crawling.AdventureWorksSales.Core.csproj" />
+  </ItemGroup>
+</Project>
